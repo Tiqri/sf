@@ -7,9 +7,11 @@ Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "Blissmo", "Blissmo\Blissmo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.UserService", "Blissmo.UserService\Blissmo.UserService.csproj", "{359A315F-6F0C-4830-B11F-24FD23488E3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.UserService.Interface", "Blissmo.UserService.Interface\Blissmo.UserService.Interface.csproj", "{D195E65E-A6F2-4DB6-95F4-27ACF823AF28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blissmo.UserService.Interface", "Blissmo.UserService.Interface\Blissmo.UserService.Interface.csproj", "{D195E65E-A6F2-4DB6-95F4-27ACF823AF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.API", "Blissmo.API\Blissmo.API.csproj", "{6F3CBB0B-DABF-4FD6-9BB7-10E45D2EA2C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blissmo.API", "Blissmo.API\Blissmo.API.csproj", "{6F3CBB0B-DABF-4FD6-9BB7-10E45D2EA2C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.Helper", "Blissmo.Helper\Blissmo.Helper.csproj", "{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,14 @@ Global
 		{6F3CBB0B-DABF-4FD6-9BB7-10E45D2EA2C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F3CBB0B-DABF-4FD6-9BB7-10E45D2EA2C8}.Release|x64.ActiveCfg = Release|Any CPU
 		{6F3CBB0B-DABF-4FD6-9BB7-10E45D2EA2C8}.Release|x64.Build.0 = Release|Any CPU
+		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Debug|x64.Build.0 = Debug|Any CPU
+		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Release|x64.ActiveCfg = Release|Any CPU
+		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

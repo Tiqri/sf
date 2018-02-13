@@ -242,6 +242,19 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Blissmo.Helper/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Microsoft.ServiceFabric.Data": "3.0.456"
+        },
+        "compile": {
+          "bin/placeholder/Blissmo.Helper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Blissmo.Helper.dll": {}
+        }
       }
     }
   },
@@ -568,10 +581,16 @@
         "netstandard.library.2.0.1.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Blissmo.Helper/1.0.0": {
+      "type": "project",
+      "path": "../Blissmo.Helper/Blissmo.Helper.csproj",
+      "msbuildProject": "../Blissmo.Helper/Blissmo.Helper.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Blissmo.Helper >= 1.0.0",
       "Microsoft.ServiceFabric.Services.Remoting >= 3.0.456",
       "NETStandard.Library >= 2.0.1"
     ]
@@ -586,11 +605,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\Office Projects\\BlissmoNew\\Blissmo\\Blissmo.UserService.Interface\\Blissmo.UserService.Interface.csproj",
+      "projectUniqueName": "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.UserService.Interface\\Blissmo.UserService.Interface.csproj",
       "projectName": "Blissmo.UserService.Interface",
-      "projectPath": "D:\\Office Projects\\BlissmoNew\\Blissmo\\Blissmo.UserService.Interface\\Blissmo.UserService.Interface.csproj",
+      "projectPath": "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.UserService.Interface\\Blissmo.UserService.Interface.csproj",
       "packagesPath": "C:\\Users\\mfe\\.nuget\\packages\\",
-      "outputPath": "D:\\Office Projects\\BlissmoNew\\Blissmo\\Blissmo.UserService.Interface\\obj\\",
+      "outputPath": "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.UserService.Interface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -610,7 +629,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.Helper\\Blissmo.Helper.csproj": {
+              "projectPath": "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.Helper\\Blissmo.Helper.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

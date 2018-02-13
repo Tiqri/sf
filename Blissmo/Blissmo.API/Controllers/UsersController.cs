@@ -53,18 +53,23 @@ namespace Blissmo.API.Controllers
                 Phone = user.Phone
             };
         }
-
-        // POST api/values
+        
+        // POST api/Post
         [HttpPost]
         public async Task Post([FromBody]ApiUser user)
         {
-            var newUser = new User()
+            var newUser = new Login()
             {
-                Id = Guid.NewGuid(),
-                Name = user.Name,
-                Address = user.Address,
-                DOB = user.DOB,
-                Phone = user.Phone
+                UserName = user.UserName,
+                Password = Login.SetPasswordHash(user.Password),
+                User = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Name = user.Name,
+                    Address = user.Address,
+                    DOB = user.DOB,
+                    Phone = user.Phone
+                }
             };
 
             await _userService.AddUser(newUser);

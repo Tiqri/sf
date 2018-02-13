@@ -104,6 +104,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Blissmo.Helper\Blissmo.Helper.csproj">
+      <Project>{5ff43c02-d8d4-44ec-952a-1fb3919f6aaf}</Project>
+      <Name>Blissmo.Helper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Blissmo.UserService.Interface\Blissmo.UserService.Interface.csproj">
       <Project>{d195e65e-a6f2-4db6-95f4-27acf823af28}</Project>
       <Name>Blissmo.UserService.Interface</Name>

@@ -12,6 +12,8 @@ namespace Blissmo.UserService
 
         Task<User> GetUser(Guid userId);
 
-        Task AddUser(User user);
+        Task<Login> GetLoginUserAsync(Login login);
+
+        Task AddUser(Login user);
     }
 }
