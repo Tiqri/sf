@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.1/win7-x64",
-    "signature": "addae041e3e6bfdc8d6c5d8596d553b38b06576c"
+    "signature": "56551be062c756d1bc7568325ff3a2bddfbb9e4b"
   },
   "compilationOptions": {
     "defines": [
@@ -23,6 +23,7 @@
     ".NETFramework,Version=v4.6.1": {
       "Blissmo.API/1.0.0": {
         "dependencies": {
+          "Blissmo.SearchService.Interface": "1.0.0",
           "Blissmo.UserService.Interface": "1.0.0",
           "Microsoft.AspNetCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc": "2.0.2",
@@ -1320,6 +1321,17 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
+      "Microsoft.Azure.Search/4.0.2-preview": {
+        "dependencies": {
+          "Microsoft.Rest.ClientRuntime": "2.3.10",
+          "Microsoft.Rest.ClientRuntime.Azure": "3.3.10",
+          "Microsoft.Spatial": "7.2.0",
+          "Newtonsoft.Json": "10.0.1"
+        },
+        "compile": {
+          "lib/net452/Microsoft.Azure.Search.dll": {}
+        }
+      },
       "Microsoft.CodeAnalysis.Analyzers/1.1.0": {},
       "Microsoft.CodeAnalysis.Common/2.3.1": {
         "dependencies": {
@@ -1711,6 +1723,23 @@
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.Rest.ClientRuntime/2.3.10": {
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.1"
+        },
+        "compile": {
+          "lib/net452/Microsoft.Rest.ClientRuntime.dll": {}
+        }
+      },
+      "Microsoft.Rest.ClientRuntime.Azure/3.3.10": {
+        "dependencies": {
+          "Microsoft.Rest.ClientRuntime": "2.3.10",
+          "Newtonsoft.Json": "10.0.1"
+        },
+        "compile": {
+          "lib/net452/Microsoft.Rest.ClientRuntime.Azure.dll": {}
+        }
+      },
       "Microsoft.ServiceFabric/6.1.456": {
         "compile": {
           "ref/netstandard2.0/Microsoft.ServiceFabric.Internal.Strings.dll": {},
@@ -1788,6 +1817,11 @@
         },
         "compile": {
           "ref/netstandard2.0/Microsoft.ServiceFabric.Services.Remoting.dll": {}
+        }
+      },
+      "Microsoft.Spatial/7.2.0": {
+        "compile": {
+          "lib/portable-net45+win8+wpa81/Microsoft.Spatial.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
@@ -2110,6 +2144,15 @@
           "Blissmo.Helper.dll": {}
         }
       },
+      "Blissmo.SearchService.Interface/1.0.0": {
+        "dependencies": {
+          "Microsoft.Azure.Search": "4.0.2-preview",
+          "Microsoft.ServiceFabric.Services.Remoting": "3.0.456"
+        },
+        "compile": {
+          "Blissmo.SearchService.Interface.dll": {}
+        }
+      },
       "Blissmo.UserService.Interface/1.0.0": {
         "dependencies": {
           "Blissmo.Helper": "1.0.0",
@@ -2123,6 +2166,7 @@
     ".NETFramework,Version=v4.6.1/win7-x64": {
       "Blissmo.API/1.0.0": {
         "dependencies": {
+          "Blissmo.SearchService.Interface": "1.0.0",
           "Blissmo.UserService.Interface": "1.0.0",
           "Microsoft.AspNetCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc": "2.0.2",
@@ -2818,6 +2862,17 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
+      "Microsoft.Azure.Search/4.0.2-preview": {
+        "dependencies": {
+          "Microsoft.Rest.ClientRuntime": "2.3.10",
+          "Microsoft.Rest.ClientRuntime.Azure": "3.3.10",
+          "Microsoft.Spatial": "7.2.0",
+          "Newtonsoft.Json": "10.0.1"
+        },
+        "runtime": {
+          "lib/net452/Microsoft.Azure.Search.dll": {}
+        }
+      },
       "Microsoft.CodeAnalysis.Analyzers/1.1.0": {},
       "Microsoft.CodeAnalysis.Common/2.3.1": {
         "dependencies": {
@@ -3209,6 +3264,23 @@
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.Rest.ClientRuntime/2.3.10": {
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.1"
+        },
+        "runtime": {
+          "lib/net452/Microsoft.Rest.ClientRuntime.dll": {}
+        }
+      },
+      "Microsoft.Rest.ClientRuntime.Azure/3.3.10": {
+        "dependencies": {
+          "Microsoft.Rest.ClientRuntime": "2.3.10",
+          "Newtonsoft.Json": "10.0.1"
+        },
+        "runtime": {
+          "lib/net452/Microsoft.Rest.ClientRuntime.Azure.dll": {}
+        }
+      },
       "Microsoft.ServiceFabric/6.1.456": {
         "runtime": {
           "runtimes/win/lib/net461/Microsoft.ServiceFabric.Internal.Strings.dll": {},
@@ -3287,6 +3359,40 @@
         },
         "runtime": {
           "runtimes/win/lib/net461/Microsoft.ServiceFabric.Services.Remoting.dll": {}
+        }
+      },
+      "Microsoft.Spatial/7.2.0": {
+        "runtime": {
+          "lib/portable-net45+win8+wpa81/Microsoft.Spatial.dll": {}
+        },
+        "resources": {
+          "lib/portable-net45+win8+wpa81/de/Microsoft.Spatial.resources.dll": {
+            "locale": "de"
+          },
+          "lib/portable-net45+win8+wpa81/es/Microsoft.Spatial.resources.dll": {
+            "locale": "es"
+          },
+          "lib/portable-net45+win8+wpa81/fr/Microsoft.Spatial.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/portable-net45+win8+wpa81/it/Microsoft.Spatial.resources.dll": {
+            "locale": "it"
+          },
+          "lib/portable-net45+win8+wpa81/ja/Microsoft.Spatial.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/portable-net45+win8+wpa81/ko/Microsoft.Spatial.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/portable-net45+win8+wpa81/ru/Microsoft.Spatial.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/portable-net45+win8+wpa81/zh-Hans/Microsoft.Spatial.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/portable-net45+win8+wpa81/zh-Hant/Microsoft.Spatial.resources.dll": {
+            "locale": "zh-Hant"
+          }
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
@@ -3611,6 +3717,15 @@
         },
         "runtime": {
           "Blissmo.Helper.dll": {}
+        }
+      },
+      "Blissmo.SearchService.Interface/1.0.0": {
+        "dependencies": {
+          "Microsoft.Azure.Search": "4.0.2-preview",
+          "Microsoft.ServiceFabric.Services.Remoting": "3.0.456"
+        },
+        "runtime": {
+          "Blissmo.SearchService.Interface.dll": {}
         }
       },
       "Blissmo.UserService.Interface/1.0.0": {
@@ -3994,6 +4109,13 @@
       "path": "microsoft.aspnetcore.webutilities/2.0.1",
       "hashPath": "microsoft.aspnetcore.webutilities.2.0.1.nupkg.sha512"
     },
+    "Microsoft.Azure.Search/4.0.2-preview": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nl8BRQYvQB/MGib7hzkDcIVdLUx4j0wAI/CBgDtkJ4V9JsA+Jz6nlRtMllc2Ip8iZKXgw5ECXwgUPBgpxL44Cw==",
+      "path": "microsoft.azure.search/4.0.2-preview",
+      "hashPath": "microsoft.azure.search.4.0.2-preview.nupkg.sha512"
+    },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -4309,6 +4431,20 @@
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
+    "Microsoft.Rest.ClientRuntime/2.3.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JO9CzV1hvjtrIzq06gJ5nNv7GV24Xz3Y3O9vx7fCe7ndNA0NmD3fZ9JUgFir2UvJ2/+9vvCo/6RXjyfywvQQIw==",
+      "path": "microsoft.rest.clientruntime/2.3.10",
+      "hashPath": "microsoft.rest.clientruntime.2.3.10.nupkg.sha512"
+    },
+    "Microsoft.Rest.ClientRuntime.Azure/3.3.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0cN3zl/lYtvClJMWVL5bCWr3iMnCx2/uGt8xbo8txNMJxp5bLKlhErKflVJRWeUfTl2clREt13+rOy/iQ1/RKg==",
+      "path": "microsoft.rest.clientruntime.azure/3.3.10",
+      "hashPath": "microsoft.rest.clientruntime.azure.3.3.10.nupkg.sha512"
+    },
     "Microsoft.ServiceFabric/6.1.456": {
       "type": "package",
       "serviceable": true,
@@ -4364,6 +4500,13 @@
       "sha512": "sha512-122XxPDEQhMUj+NTJW2/s9wWSlyCOdmYF8cJnq7P5eOU9nEL8A/wSfQwpm8HmLorp2spElexyGCwcfCD/NHkTw==",
       "path": "microsoft.servicefabric.services.remoting/3.0.456",
       "hashPath": "microsoft.servicefabric.services.remoting.3.0.456.nupkg.sha512"
+    },
+    "Microsoft.Spatial/7.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qLZ+g9Bfn87Ui9Jbb5loO+5jYCPGlTlV+JowSXXUQmkspSNPoWkbsmLpulbMbNpnTOiBEf/ishpz5GmYi6cSCA==",
+      "path": "microsoft.spatial/7.2.0",
+      "hashPath": "microsoft.spatial.7.2.0.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
       "type": "package",
@@ -4898,6 +5041,11 @@
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     },
     "Blissmo.Helper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Blissmo.SearchService.Interface/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

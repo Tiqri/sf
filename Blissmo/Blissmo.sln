@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blissmo.UserService.Interfa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blissmo.API", "Blissmo.API\Blissmo.API.csproj", "{6F3CBB0B-DABF-4FD6-9BB7-10E45D2EA2C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.Helper", "Blissmo.Helper\Blissmo.Helper.csproj", "{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blissmo.Helper", "Blissmo.Helper\Blissmo.Helper.csproj", "{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.SearchService", "Blissmo.SearchService\Blissmo.SearchService.csproj", "{851B799D-6A5A-4244-980D-47668610EC1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.SearchService.Interface", "Blissmo.SearchService.Interface\Blissmo.SearchService.Interface.csproj", "{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,20 @@ Global
 		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Release|x64.ActiveCfg = Release|Any CPU
 		{5FF43C02-D8D4-44EC-952A-1FB3919F6AAF}.Release|x64.Build.0 = Release|Any CPU
+		{851B799D-6A5A-4244-980D-47668610EC1D}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{851B799D-6A5A-4244-980D-47668610EC1D}.Debug|x64.ActiveCfg = Debug|x64
+		{851B799D-6A5A-4244-980D-47668610EC1D}.Debug|x64.Build.0 = Debug|x64
+		{851B799D-6A5A-4244-980D-47668610EC1D}.Release|Any CPU.ActiveCfg = Release|x64
+		{851B799D-6A5A-4244-980D-47668610EC1D}.Release|x64.ActiveCfg = Release|x64
+		{851B799D-6A5A-4244-980D-47668610EC1D}.Release|x64.Build.0 = Release|x64
+		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Debug|x64.Build.0 = Debug|Any CPU
+		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Release|x64.ActiveCfg = Release|Any CPU
+		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

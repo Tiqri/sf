@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Fabric;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Blissmo.Helper.Encryption;
 using Blissmo.UserService.Interface;
 using Blissmo.UserService.Interface.Model;
-using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
@@ -36,8 +34,8 @@ namespace Blissmo.UserService
             PasswordHash hash = new PasswordHash(Convert.FromBase64String(user.Password));
             if (!hash.Verify(login.Password))
                 throw new System.UnauthorizedAccessException();
-            else
-                return user.User;
+            
+            return user.User;            
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()

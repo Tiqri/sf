@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blissmo.SearchService.Interface\Blissmo.SearchService.Interface.csproj" />
     <ProjectReference Include="..\Blissmo.UserService.Interface\Blissmo.UserService.Interface.csproj" />
   </ItemGroup>
 

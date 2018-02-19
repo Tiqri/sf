@@ -33,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blissmo.API\Blissmo.API.csproj" />
+    <ProjectReference Include="..\Blissmo.SearchService\Blissmo.SearchService.csproj" />
     <ProjectReference Include="..\Blissmo.UserService\Blissmo.UserService.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
