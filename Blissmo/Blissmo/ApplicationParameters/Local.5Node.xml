@@ -8,5 +8,6 @@
     <Parameter Name="Blissmo.UserService_PartitionCount" Value="1" />
     <Parameter Name="Blissmo.UserService_MinReplicaSetSize" Value="3" />
     <Parameter Name="Blissmo.UserService_TargetReplicaSetSize" Value="3" />
+    <Parameter Name="ChatServiceActorService_PartitionCount" Value="1" />
   </Parameters>
 </Application>

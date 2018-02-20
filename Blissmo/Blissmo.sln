@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blissmo.Helper", "Blissmo.H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.SearchService", "Blissmo.SearchService\Blissmo.SearchService.csproj", "{851B799D-6A5A-4244-980D-47668610EC1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.SearchService.Interface", "Blissmo.SearchService.Interface\Blissmo.SearchService.Interface.csproj", "{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blissmo.SearchService.Interface", "Blissmo.SearchService.Interface\Blissmo.SearchService.Interface.csproj", "{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.ChatService", "Blissmo.ChatService\Blissmo.ChatService.csproj", "{6D660417-F6E1-417E-8A93-0FB2D2780AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.ChatService.Interfaces", "Blissmo.ChatService.Interfaces\Blissmo.ChatService.Interfaces.csproj", "{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +81,18 @@ Global
 		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Release|x64.ActiveCfg = Release|Any CPU
 		{93E01E6D-FBC5-4BE5-8A88-03011CAC210C}.Release|x64.Build.0 = Release|Any CPU
+		{6D660417-F6E1-417E-8A93-0FB2D2780AFB}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{6D660417-F6E1-417E-8A93-0FB2D2780AFB}.Debug|x64.ActiveCfg = Debug|x64
+		{6D660417-F6E1-417E-8A93-0FB2D2780AFB}.Debug|x64.Build.0 = Debug|x64
+		{6D660417-F6E1-417E-8A93-0FB2D2780AFB}.Release|Any CPU.ActiveCfg = Release|x64
+		{6D660417-F6E1-417E-8A93-0FB2D2780AFB}.Release|x64.ActiveCfg = Release|x64
+		{6D660417-F6E1-417E-8A93-0FB2D2780AFB}.Release|x64.Build.0 = Release|x64
+		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Debug|x64.ActiveCfg = Debug|x64
+		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Debug|x64.Build.0 = Debug|x64
+		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Release|Any CPU.ActiveCfg = Release|x64
+		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Release|x64.ActiveCfg = Release|x64
+		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

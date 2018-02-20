@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.1/win7-x64",
-    "signature": "56551be062c756d1bc7568325ff3a2bddfbb9e4b"
+    "signature": "eaf45e551207e6ad66b325d3e37ad9c5dc8c7b41"
   },
   "compilationOptions": {
     "defines": [
@@ -23,6 +23,7 @@
     ".NETFramework,Version=v4.6.1": {
       "Blissmo.API/1.0.0": {
         "dependencies": {
+          "Blissmo.ChatService.Interfaces": "1.0.0",
           "Blissmo.SearchService.Interface": "1.0.0",
           "Blissmo.UserService.Interface": "1.0.0",
           "Microsoft.AspNetCore": "2.0.1",
@@ -32,6 +33,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
           "Microsoft.ServiceFabric": "6.1.456",
+          "Microsoft.ServiceFabric.Actors": "3.0.456",
           "Microsoft.ServiceFabric.AspNetCore.Kestrel": "3.0.456",
           "Microsoft.ServiceFabric.Data": "3.0.456",
           "Microsoft.ServiceFabric.Services": "3.0.456",
@@ -1750,6 +1752,15 @@
           "ref/netstandard2.0/System.Fabric.dll": {}
         }
       },
+      "Microsoft.ServiceFabric.Actors/3.0.456": {
+        "dependencies": {
+          "Microsoft.ServiceFabric.Diagnostics.Internal": "3.0.456",
+          "Microsoft.ServiceFabric.Services.Remoting": "3.0.456"
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.ServiceFabric.Actors.dll": {}
+        }
+      },
       "Microsoft.ServiceFabric.AspNetCore.Abstractions/3.0.456": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "2.0.1",
@@ -2136,6 +2147,11 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "Blissmo.ChatService.Interfaces/1.0.0": {
+        "compile": {
+          "Blissmo.ChatService.Interfaces.dll": {}
+        }
+      },
       "Blissmo.Helper/1.0.0": {
         "dependencies": {
           "Microsoft.ServiceFabric.Data": "3.0.456"
@@ -2166,6 +2182,7 @@
     ".NETFramework,Version=v4.6.1/win7-x64": {
       "Blissmo.API/1.0.0": {
         "dependencies": {
+          "Blissmo.ChatService.Interfaces": "1.0.0",
           "Blissmo.SearchService.Interface": "1.0.0",
           "Blissmo.UserService.Interface": "1.0.0",
           "Microsoft.AspNetCore": "2.0.1",
@@ -2175,6 +2192,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
           "Microsoft.ServiceFabric": "6.1.456",
+          "Microsoft.ServiceFabric.Actors": "3.0.456",
           "Microsoft.ServiceFabric.AspNetCore.Kestrel": "3.0.456",
           "Microsoft.ServiceFabric.Data": "3.0.456",
           "Microsoft.ServiceFabric.Services": "3.0.456",
@@ -3292,6 +3310,15 @@
           "runtimes/win/lib/net461/System.Fabric.dll": {}
         }
       },
+      "Microsoft.ServiceFabric.Actors/3.0.456": {
+        "dependencies": {
+          "Microsoft.ServiceFabric.Diagnostics.Internal": "3.0.456",
+          "Microsoft.ServiceFabric.Services.Remoting": "3.0.456"
+        },
+        "runtime": {
+          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Actors.dll": {}
+        }
+      },
       "Microsoft.ServiceFabric.AspNetCore.Abstractions/3.0.456": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "2.0.1",
@@ -3709,6 +3736,11 @@
       "System.Xml.XPath.XDocument/4.3.0": {
         "dependencies": {
           "System.Xml.XPath": "4.3.0"
+        }
+      },
+      "Blissmo.ChatService.Interfaces/1.0.0": {
+        "runtime": {
+          "Blissmo.ChatService.Interfaces.dll": {}
         }
       },
       "Blissmo.Helper/1.0.0": {
@@ -4452,6 +4484,13 @@
       "path": "microsoft.servicefabric/6.1.456",
       "hashPath": "microsoft.servicefabric.6.1.456.nupkg.sha512"
     },
+    "Microsoft.ServiceFabric.Actors/3.0.456": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iSTrJK1eOrYdu0HbYoiuJPILgZtWYRMyup+VLZ236kq6zvgnHM6Qfa+8RW6Hlni7L8fa3rOKHzEH9ts9JdpDOA==",
+      "path": "microsoft.servicefabric.actors/3.0.456",
+      "hashPath": "microsoft.servicefabric.actors.3.0.456.nupkg.sha512"
+    },
     "Microsoft.ServiceFabric.AspNetCore.Abstractions/3.0.456": {
       "type": "package",
       "serviceable": true,
@@ -5039,6 +5078,11 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Blissmo.ChatService.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Blissmo.Helper/1.0.0": {
       "type": "project",

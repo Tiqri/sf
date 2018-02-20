@@ -8,10 +8,16 @@
     <Parameter Name="Blissmo.UserService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Blissmo.UserService_PartitionCount" DefaultValue="1" />
     <Parameter Name="Blissmo.UserService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="ChatServiceActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="ChatServiceActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="ChatServiceActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Blissmo.ChatServicePkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.SearchServicePkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -43,6 +49,11 @@
     <Service Name="Blissmo.UserService" ServicePackageActivationMode="ExclusiveProcess">
       <StatefulService ServiceTypeName="Blissmo.UserServiceType" TargetReplicaSetSize="[Blissmo.UserService_TargetReplicaSetSize]" MinReplicaSetSize="[Blissmo.UserService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[Blissmo.UserService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="ChatServiceActorService" GeneratedIdRef="93f6091e-e032-45eb-a6a7-c73d6b268d50|Persisted">
+      <StatefulService ServiceTypeName="ChatServiceActorServiceType" TargetReplicaSetSize="[ChatServiceActorService_TargetReplicaSetSize]" MinReplicaSetSize="[ChatServiceActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[ChatServiceActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
   </DefaultServices>
