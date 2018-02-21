@@ -11,10 +11,16 @@
     <Parameter Name="ChatServiceActorService_PartitionCount" DefaultValue="10" />
     <Parameter Name="ChatServiceActorService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="ChatServiceActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="BookingServiceActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="BookingServiceActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="BookingServiceActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Blissmo.BookingServiceActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.ChatServicePkg" ServiceManifestVersion="1.0.0" />
   </ServiceManifestImport>
@@ -54,6 +60,11 @@
     <Service Name="ChatServiceActorService" GeneratedIdRef="93f6091e-e032-45eb-a6a7-c73d6b268d50|Persisted">
       <StatefulService ServiceTypeName="ChatServiceActorServiceType" TargetReplicaSetSize="[ChatServiceActorService_TargetReplicaSetSize]" MinReplicaSetSize="[ChatServiceActorService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[ChatServiceActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="BookingServiceActorService" GeneratedIdRef="a6bcbab2-751c-4a3d-b1a1-850aaaa446c5|Persisted">
+      <StatefulService ServiceTypeName="BookingServiceActorServiceType" TargetReplicaSetSize="[BookingServiceActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BookingServiceActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[BookingServiceActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
   </DefaultServices>

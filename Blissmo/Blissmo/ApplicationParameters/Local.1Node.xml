@@ -11,5 +11,8 @@
     <Parameter Name="ChatServiceActorService_PartitionCount" Value="1" />
     <Parameter Name="ChatServiceActorService_TargetReplicaSetSize" Value="1" />
     <Parameter Name="ChatServiceActorService_MinReplicaSetSize" Value="1" />
+    <Parameter Name="BookingServiceActorService_PartitionCount" Value="1" />
+    <Parameter Name="BookingServiceActorService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="BookingServiceActorService_MinReplicaSetSize" Value="1" />
   </Parameters>
 </Application>

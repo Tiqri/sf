@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
@@ -34,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blissmo.BookingServiceActor.Interfaces\Blissmo.BookingServiceActor.Interfaces.csproj" />
     <ProjectReference Include="..\Blissmo.ChatService.Interfaces\Blissmo.ChatService.Interfaces.csproj" />
     <ProjectReference Include="..\Blissmo.SearchService.Interface\Blissmo.SearchService.Interface.csproj" />
     <ProjectReference Include="..\Blissmo.UserService.Interface\Blissmo.UserService.Interface.csproj" />

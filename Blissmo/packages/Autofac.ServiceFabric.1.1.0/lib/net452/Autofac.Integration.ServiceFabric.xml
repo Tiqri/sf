@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Autofac.Integration.ServiceFabric</name>
+    </assembly>
+    <members>
+        <member name="T:Autofac.Integration.ServiceFabric.AutofacActorExtensions">
+            <summary>
+            Extension methods for registering actors with Autofac and Service Fabric.
+            </summary>
+        </member>
+        <member name="M:Autofac.Integration.ServiceFabric.AutofacActorExtensions.RegisterActor``1(Autofac.ContainerBuilder,System.Func{Microsoft.ServiceFabric.Actors.Runtime.ActorBase,Microsoft.ServiceFabric.Actors.Runtime.IActorStateProvider,Microsoft.ServiceFabric.Actors.Runtime.IActorStateManager},Microsoft.ServiceFabric.Actors.Runtime.IActorStateProvider,Microsoft.ServiceFabric.Actors.Runtime.ActorServiceSettings)">
+            <summary>
+            Registers an actor service with the container.
+            </summary>
+            <param name="builder">The container builder.</param>
+            <param name="stateManagerFactory">A factory method to create <see cref="T:Microsoft.ServiceFabric.Actors.Runtime.IActorStateManager"/>.</param>
+            <param name="stateProvider">State provider to store the state for actor objects.</param>
+            <param name="settings">/// Settings to configures behavior of Actor Service.</param>
+            <typeparam name="TActor">The type of the actor to register.</typeparam>
+            <returns>A registration builder allowing further configuration of the component.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <typeparamref name="TActor"/> is not a valid actor type.</exception>
+            <remarks>The actor will be wrapped in a dynamic proxy and must be public and not sealed.</remarks>
+        </member>
+        <member name="T:Autofac.Integration.ServiceFabric.AutofacServiceExtensions">
+            <summary>
+            Extension methods for registering services (stateful and stateless) with Autofac and Service Fabric.
+            </summary>
+        </member>
+        <member name="M:Autofac.Integration.ServiceFabric.AutofacServiceExtensions.RegisterStatefulService``1(Autofac.ContainerBuilder,System.String)">
+            <summary>
+            Registers a stateful service with the container.
+            </summary>
+            <param name="builder">The container builder.</param>
+            <param name="serviceTypeName">ServiceTypeName as provided in service manifest.</param>
+            <typeparam name="TService">The type of the stateful service to register.</typeparam>
+            <returns>A registration builder allowing further configuration of the component.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <typeparamref name="TService"/> is not a valid service type.</exception>
+            <remarks>The service will be wrapped in a dynamic proxy and must be public and not sealed.</remarks>
+        </member>
+        <member name="M:Autofac.Integration.ServiceFabric.AutofacServiceExtensions.RegisterStatelessService``1(Autofac.ContainerBuilder,System.String)">
+            <summary>
+            Registers a stateless service with the container.
+            </summary>
+            <param name="builder">The container builder.</param>
+            <param name="serviceTypeName">ServiceTypeName as provided in service manifest.</param>
+            <typeparam name="TService">The type of the stateless service to register.</typeparam>
+            <returns>A registration builder allowing further configuration of the component.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <typeparamref name="TService"/> is not a valid service type.</exception>
+            <remarks>The service will be wrapped in a dynamic proxy and must be public and not sealed.</remarks>
+            <returns></returns>
+        </member>
+        <member name="T:Autofac.Integration.ServiceFabric.ServiceFabricModule">
+            <summary>
+            Autofac module that registers the interceptors required for Service Fabric support.
+            </summary>
+        </member>
+        <member name="M:Autofac.Integration.ServiceFabric.ServiceFabricModule.Load(Autofac.ContainerBuilder)">
+            <summary>Adds registrations to the container.</summary>
+            <param name="builder">The builder through which components can be registered.</param>
+        </member>
+        <member name="T:Autofac.Integration.ServiceFabric.RegistrationExtensions">
+            <summary>
+            Adds registration syntax to the <see cref="T:Autofac.ContainerBuilder"/> type.
+            </summary>
+        </member>
+        <member name="M:Autofac.Integration.ServiceFabric.RegistrationExtensions.RegisterServiceFabricSupport(Autofac.ContainerBuilder)">
+            <summary>
+            Adds the core services required by the Service Fabric integration.
+            </summary>
+            <param name="builder">The container builder to register the services with.</param>
+        </member>
+        <member name="T:Autofac.Integration.ServiceFabric.TypeExtensionsResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Autofac.Integration.ServiceFabric.TypeExtensionsResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Autofac.Integration.ServiceFabric.TypeExtensionsResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Autofac.Integration.ServiceFabric.TypeExtensionsResources.InvalidProxyTypeErrorMessage">
+            <summary>
+              Looks up a localized string similar to The type {0} cannot be dynamically proxied. Service types must not be sealed and need to be visible to the DynamicProxyGenAssembly2 assembly. This can be achieved by making the type public or adding the InternalsVisibleToAttribute to the assembly containing the type. e.g. [assembly: InternalsVisibleTo(InternalsVisible.ToDynamicProxyGenAssembly2)].
+            </summary>
+        </member>
+        <member name="P:Autofac.Integration.ServiceFabric.TypeExtensionsResources.ServiceNotRegisteredAsIntancePerLifetimeScope">
+            <summary>
+              Looks up a localized string similar to The service {0} must be registered as InstancePerLifetimeScope..
+            </summary>
+        </member>
+    </members>
+</doc>

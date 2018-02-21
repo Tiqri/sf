@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.6.1": {
+      "AutoMapper/6.2.2": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/net45/AutoMapper.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -2832,6 +2846,15 @@
           "lib/net46/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Blissmo.BookingServiceActor.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Blissmo.BookingServiceActor.Interfaces.dll": {}
+        }
+      },
       "Blissmo.ChatService.Interfaces/1.0.0": {
         "type": "project",
         "compile": {
@@ -2884,6 +2907,20 @@
       }
     },
     ".NETFramework,Version=v4.6.1/win7-x64": {
+      "AutoMapper/6.2.2": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/net45/AutoMapper.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -5383,6 +5420,15 @@
           "lib/net46/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Blissmo.BookingServiceActor.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Blissmo.BookingServiceActor.Interfaces.dll": {}
+        }
+      },
       "Blissmo.ChatService.Interfaces/1.0.0": {
         "type": "project",
         "compile": {
@@ -5436,6 +5482,23 @@
     }
   },
   "libraries": {
+    "AutoMapper/6.2.2": {
+      "sha512": "eGKcnJdoF5rYMWPUaSPtlWdvua9xw4hnQN5kM/X4AXLGKghrtPIaMv+RYoA3sj0kyZ3X6wZ1Qj67F+u0pCCPaw==",
+      "type": "package",
+      "path": "automapper/6.2.2",
+      "files": [
+        "automapper.6.2.2.nupkg.sha512",
+        "automapper.nuspec",
+        "lib/net40/AutoMapper.dll",
+        "lib/net40/AutoMapper.xml",
+        "lib/net45/AutoMapper.dll",
+        "lib/net45/AutoMapper.xml",
+        "lib/netstandard1.1/AutoMapper.dll",
+        "lib/netstandard1.1/AutoMapper.xml",
+        "lib/netstandard1.3/AutoMapper.dll",
+        "lib/netstandard1.3/AutoMapper.xml"
+      ]
+    },
     "Libuv/1.10.0": {
       "sha512": "GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "type": "package",
@@ -10140,6 +10203,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Blissmo.BookingServiceActor.Interfaces/Blissmo.BookingServiceActor.Interfaces.csproj",
+      "msbuildProject": "../Blissmo.BookingServiceActor.Interfaces/Blissmo.BookingServiceActor.Interfaces.csproj"
+    },
     "Blissmo.ChatService.Interfaces/1.0.0": {
       "type": "project",
       "path": "../Blissmo.ChatService.Interfaces/Blissmo.ChatService.Interfaces.csproj",
@@ -10163,6 +10231,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.1": [
+      "AutoMapper >= 6.2.2",
+      "Blissmo.BookingServiceActor.Interfaces >= 1.0.0",
       "Blissmo.ChatService.Interfaces >= 1.0.0",
       "Blissmo.SearchService.Interface >= 1.0.0",
       "Blissmo.UserService.Interface >= 1.0.0",
@@ -10222,6 +10292,9 @@
             "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.SearchService.Interface\\Blissmo.SearchService.Interface.csproj": {
               "projectPath": "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.SearchService.Interface\\Blissmo.SearchService.Interface.csproj"
             },
+            "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.BookingServiceActor.Interfaces\\Blissmo.BookingServiceActor.Interfaces.csproj": {
+              "projectPath": "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.BookingServiceActor.Interfaces\\Blissmo.BookingServiceActor.Interfaces.csproj"
+            },
             "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.UserService.Interface\\Blissmo.UserService.Interface.csproj": {
               "projectPath": "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.UserService.Interface\\Blissmo.UserService.Interface.csproj"
             }
@@ -10237,6 +10310,10 @@
     "frameworks": {
       "net461": {
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[6.2.2, )"
+          },
           "Microsoft.AspNetCore": {
             "target": "Package",
             "version": "[2.0.1, )"

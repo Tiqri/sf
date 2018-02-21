@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blissmo.API.Mapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +35,7 @@ namespace Blissmo.API
                 app.UseDeveloperExceptionPage();
             }
 
+            AutoMapperConfiguration.Configure();
             app.UseMvc();
         }
     }

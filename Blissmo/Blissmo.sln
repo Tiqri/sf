@@ -21,6 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.ChatService", "Blis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.ChatService.Interfaces", "Blissmo.ChatService.Interfaces\Blissmo.ChatService.Interfaces.csproj", "{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blissmo.Functions", "Blissmo.Functions", "{BA7CDCF9-2D94-494E-8FF7-73CDC917B4A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blissmo.FunctionApp", "Blissmo.FunctionApp\Blissmo.FunctionApp.csproj", "{8BC37005-141C-4B82-9C7D-EDDB3B823428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.BookingServiceActor", "Blissmo.BookingServiceActor\Blissmo.BookingServiceActor.csproj", "{33CC1AB6-4D74-4595-B9C9-7B06BFB7A843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.BookingServiceActor.Interfaces", "Blissmo.BookingServiceActor.Interfaces\Blissmo.BookingServiceActor.Interfaces.csproj", "{1BB9B79A-1365-494B-89BC-4D14E07F1C89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,9 +101,32 @@ Global
 		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Release|Any CPU.ActiveCfg = Release|x64
 		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Release|x64.ActiveCfg = Release|x64
 		{550B4BB8-9FC7-4C19-84C3-D746BE3B10BA}.Release|x64.Build.0 = Release|x64
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428}.Debug|x64.Build.0 = Debug|Any CPU
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428}.Release|x64.ActiveCfg = Release|Any CPU
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428}.Release|x64.Build.0 = Release|Any CPU
+		{33CC1AB6-4D74-4595-B9C9-7B06BFB7A843}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{33CC1AB6-4D74-4595-B9C9-7B06BFB7A843}.Debug|x64.ActiveCfg = Debug|x64
+		{33CC1AB6-4D74-4595-B9C9-7B06BFB7A843}.Debug|x64.Build.0 = Debug|x64
+		{33CC1AB6-4D74-4595-B9C9-7B06BFB7A843}.Release|Any CPU.ActiveCfg = Release|x64
+		{33CC1AB6-4D74-4595-B9C9-7B06BFB7A843}.Release|x64.ActiveCfg = Release|x64
+		{33CC1AB6-4D74-4595-B9C9-7B06BFB7A843}.Release|x64.Build.0 = Release|x64
+		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Debug|x64.ActiveCfg = Debug|x64
+		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Debug|x64.Build.0 = Debug|x64
+		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Release|Any CPU.ActiveCfg = Release|x64
+		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Release|x64.ActiveCfg = Release|x64
+		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8BC37005-141C-4B82-9C7D-EDDB3B823428} = {BA7CDCF9-2D94-494E-8FF7-73CDC917B4A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3BFA497F-5BB9-4D70-96FB-7ABD76F30365}

@@ -15,10 +15,10 @@ namespace Blissmo.SearchService.Interface.Model
         [IsSearchable, IsFilterable, IsSortable]
         public string title { get; set; }
 
-        [IsSearchable]
+        //[IsSearchable]
         public string longDescription { get; set; }
 
-        [IsSearchable]
+        //[IsSearchable]
         public string shortDescription { get; set; }
     }
 }
