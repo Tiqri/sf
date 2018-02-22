@@ -18,7 +18,7 @@ namespace Blissmo.BookingServiceActor.MessageBrokerProvider
             var client = QueueClient.CreateFromConnectionString(_endPoint, _queueName);
             var message = new BrokeredMessage(bookingJson);
 
-            await client.SendAsync(message);
+            client.SendAsync(message);
         }
     }
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.1/win7-x64",
-    "signature": "655d2ce4ce0e82b999d2768658f6fbbcf8bef2ba"
+    "signature": "6bb6b37420dd0c631db5efe7420640f5acb44e88"
   },
   "compilationOptions": {
     "defines": [
@@ -45,6 +45,7 @@
           "mscorlib": "4.0.0.0",
           "System.ComponentModel.Composition": "4.0.0.0",
           "System.ComponentModel.DataAnnotations": "4.0.0.0",
+          "System.Configuration": "4.0.0.0",
           "System.Core": "4.0.0.0",
           "System.Data": "4.0.0.0",
           "System": "4.0.0.0",
@@ -185,6 +186,11 @@
       "System.ComponentModel.DataAnnotations/4.0.0.0": {
         "compile": {
           ".NETFramework/v4.6.1/System.ComponentModel.DataAnnotations.dll": {}
+        }
+      },
+      "System.Configuration/4.0.0.0": {
+        "compile": {
+          ".NETFramework/v4.6.1/System.Configuration.dll": {}
         }
       },
       "System.Core/4.0.0.0": {
@@ -2154,6 +2160,11 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "WindowsAzure.ServiceBus/4.1.7": {
+        "compile": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        }
+      },
       "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
         "compile": {
           "Blissmo.BookingServiceActor.Interfaces.dll": {}
@@ -2166,7 +2177,8 @@
       },
       "Blissmo.Helper/1.0.0": {
         "dependencies": {
-          "Microsoft.ServiceFabric.Data": "3.0.456"
+          "Microsoft.ServiceFabric.Data": "3.0.456",
+          "WindowsAzure.ServiceBus": "4.1.7"
         },
         "compile": {
           "Blissmo.Helper.dll": {}
@@ -2216,6 +2228,7 @@
           "mscorlib": "4.0.0.0",
           "System.ComponentModel.Composition": "4.0.0.0",
           "System.ComponentModel.DataAnnotations": "4.0.0.0",
+          "System.Configuration": "4.0.0.0",
           "System.Core": "4.0.0.0",
           "System.Data": "4.0.0.0",
           "System": "4.0.0.0",
@@ -3757,6 +3770,11 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "WindowsAzure.ServiceBus/4.1.7": {
+        "runtime": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        }
+      },
       "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
         "runtime": {
           "Blissmo.BookingServiceActor.Interfaces.dll": {}
@@ -3769,7 +3787,8 @@
       },
       "Blissmo.Helper/1.0.0": {
         "dependencies": {
-          "Microsoft.ServiceFabric.Data": "3.0.456"
+          "Microsoft.ServiceFabric.Data": "3.0.456",
+          "WindowsAzure.ServiceBus": "4.1.7"
         },
         "runtime": {
           "Blissmo.Helper.dll": {}
@@ -5110,6 +5129,13 @@
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     },
+    "WindowsAzure.ServiceBus/4.1.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vmP47P5Piv5phxTkejYpoumm/Mzfk6KIdjCaJp4+E21VNI6fC6AKc0cFdynQxPSCA9uhhLGUSS72QFmTzXm/jA==",
+      "path": "windowsazure.servicebus/4.1.7",
+      "hashPath": "windowsazure.servicebus.4.1.7.nupkg.sha512"
+    },
     "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -5151,6 +5177,11 @@
       "sha512": ""
     },
     "System.ComponentModel.DataAnnotations/4.0.0.0": {
+      "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Configuration/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

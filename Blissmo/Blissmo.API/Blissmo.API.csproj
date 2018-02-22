@@ -5,7 +5,7 @@
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
     <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
   </PropertyGroup>
-
+  
   <ItemGroup>
     <Compile Remove="wwwroot\**" />
     <Content Remove="wwwroot\**" />
@@ -39,6 +39,10 @@
     <ProjectReference Include="..\Blissmo.ChatService.Interfaces\Blissmo.ChatService.Interfaces.csproj" />
     <ProjectReference Include="..\Blissmo.SearchService.Interface\Blissmo.SearchService.Interface.csproj" />
     <ProjectReference Include="..\Blissmo.UserService.Interface\Blissmo.UserService.Interface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
   </ItemGroup>
 
 </Project>

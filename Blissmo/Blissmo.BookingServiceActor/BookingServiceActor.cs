@@ -4,9 +4,8 @@ using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using Blissmo.BookingServiceActor.Interfaces;
 using Blissmo.BookingServiceActor.Interfaces.Model;
+using Blissmo.Helper.MessageBrokerProvider;
 using System.Configuration;
-using Microsoft.ServiceBus.Messaging;
-using Blissmo.BookingServiceActor.MessageBrokerProvider;
 
 namespace Blissmo.BookingServiceActor
 {
@@ -23,6 +22,8 @@ namespace Blissmo.BookingServiceActor
     {
         private IMessageBroker _bookingMessageBroker;
         private IBookingRepository _bookingRepository;
+        private readonly string _endPoint = ConfigurationManager.AppSettings["ServiceBusEndPoint"];
+        private readonly string _queueName = ConfigurationManager.AppSettings["ServiceBusQueueName"];
 
         /// <summary>
         /// Initializes a new instance of BookingServiceActor
@@ -46,16 +47,7 @@ namespace Blissmo.BookingServiceActor
 
             this._bookingMessageBroker = new ServiceBusMessageBroker();
 
-            return this.StateManager.TryAddStateAsync("count", 0);
-        }
-
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <returns></returns>
-        async Task<int> IBookingServiceActor.GetCountAsync(CancellationToken cancellationToken)
-        {
-            return await this.StateManager.GetStateAsync<int>("count", cancellationToken);
+            return base.OnActivateAsync(); //this.StateManager.TryAddStateAsync("count", 0);
         }
 
         /// <summary>
@@ -67,7 +59,10 @@ namespace Blissmo.BookingServiceActor
         /// <returns></returns>
         async Task IBookingServiceActor.AddBooking(Booking booking, CancellationToken cancellationToken)
         {
-            await this._bookingMessageBroker.SendMessageAsync(booking);
+            await this._bookingMessageBroker.SendMessageAsync(
+                _endPoint,
+                _queueName, 
+                booking);
             await this._bookingRepository.AddBooking(booking);
         }
     }

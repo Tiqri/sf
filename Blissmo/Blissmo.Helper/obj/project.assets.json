@@ -134,6 +134,15 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "WindowsAzure.ServiceBus/4.1.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        }
       }
     }
   },
@@ -374,12 +383,26 @@
         "netstandard.library.2.0.1.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "WindowsAzure.ServiceBus/4.1.7": {
+      "sha512": "vmP47P5Piv5phxTkejYpoumm/Mzfk6KIdjCaJp4+E21VNI6fC6AKc0cFdynQxPSCA9uhhLGUSS72QFmTzXm/jA==",
+      "type": "package",
+      "path": "windowsazure.servicebus/4.1.7",
+      "files": [
+        "content/app.config.install.xdt",
+        "content/web.config.install.xdt",
+        "lib/net45/Microsoft.ServiceBus.dll",
+        "lib/net45/Microsoft.ServiceBus.xml",
+        "windowsazure.servicebus.4.1.7.nupkg.sha512",
+        "windowsazure.servicebus.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Microsoft.ServiceFabric.Data >= 3.0.456",
-      "NETStandard.Library >= 2.0.1"
+      "NETStandard.Library >= 2.0.1",
+      "WindowsAzure.ServiceBus >= 4.1.7"
     ]
   },
   "packageFolders": {
@@ -437,6 +460,10 @@
             "target": "Package",
             "version": "[2.0.1, )",
             "autoReferenced": true
+          },
+          "WindowsAzure.ServiceBus": {
+            "target": "Package",
+            "version": "[4.1.7, )"
           }
         },
         "imports": [
@@ -446,5 +473,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'WindowsAzure.ServiceBus 4.1.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "WindowsAzure.ServiceBus",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

@@ -18,12 +18,6 @@ namespace Blissmo.BookingServiceActor.Interfaces
     public interface IBookingServiceActor : IActor
     {
         /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <returns></returns>
-        Task<int> GetCountAsync(CancellationToken cancellationToken);
-
-        /// <summary>
         /// Add booking actor method.
         /// </summary>
         /// <param name="booking">booking object</param>

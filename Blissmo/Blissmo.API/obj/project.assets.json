@@ -2846,6 +2846,20 @@
           "lib/net46/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "WindowsAzure.ServiceBus/4.1.7": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Runtime.Serialization",
+          "System.ServiceModel",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        }
+      },
       "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
         "type": "project",
         "compile": {
@@ -2868,7 +2882,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Microsoft.ServiceFabric.Data": "3.0.456"
+          "Microsoft.ServiceFabric.Data": "3.0.456",
+          "WindowsAzure.ServiceBus": "4.1.7"
         },
         "compile": {
           "bin/placeholder/Blissmo.Helper.dll": {}
@@ -5420,6 +5435,20 @@
           "lib/net46/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "WindowsAzure.ServiceBus/4.1.7": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Runtime.Serialization",
+          "System.ServiceModel",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        }
+      },
       "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
         "type": "project",
         "compile": {
@@ -5442,7 +5471,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Microsoft.ServiceFabric.Data": "3.0.456"
+          "Microsoft.ServiceFabric.Data": "3.0.456",
+          "WindowsAzure.ServiceBus": "4.1.7"
         },
         "compile": {
           "bin/placeholder/Blissmo.Helper.dll": {}
@@ -10201,6 +10231,19 @@
         "ref/xamarinwatchos10/_._",
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
+      ]
+    },
+    "WindowsAzure.ServiceBus/4.1.7": {
+      "sha512": "vmP47P5Piv5phxTkejYpoumm/Mzfk6KIdjCaJp4+E21VNI6fC6AKc0cFdynQxPSCA9uhhLGUSS72QFmTzXm/jA==",
+      "type": "package",
+      "path": "windowsazure.servicebus/4.1.7",
+      "files": [
+        "content/app.config.install.xdt",
+        "content/web.config.install.xdt",
+        "lib/net45/Microsoft.ServiceBus.dll",
+        "lib/net45/Microsoft.ServiceBus.xml",
+        "windowsazure.servicebus.4.1.7.nupkg.sha512",
+        "windowsazure.servicebus.nuspec"
       ]
     },
     "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
