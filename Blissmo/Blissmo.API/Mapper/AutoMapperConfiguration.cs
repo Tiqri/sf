@@ -9,6 +9,9 @@ namespace Blissmo.API.Mapper
     {
         public static void Configure()
         {
+            AutoMapper.ServiceCollectionExtensions.UseStaticRegistration = false;
+            AutoMapper.Mapper.Reset();
+
             AutoMapper.Mapper.Initialize(x =>
             {
                 x.AddProfile<MappingProfile>();

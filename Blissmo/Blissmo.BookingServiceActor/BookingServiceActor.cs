@@ -6,6 +6,8 @@ using Blissmo.BookingServiceActor.Interfaces;
 using Blissmo.BookingServiceActor.Interfaces.Model;
 using Blissmo.Helper.MessageBrokerProvider;
 using System.Configuration;
+using Blissmo.Helper.KeyVault;
+using System;
 
 namespace Blissmo.BookingServiceActor
 {
@@ -22,8 +24,8 @@ namespace Blissmo.BookingServiceActor
     {
         private IMessageBroker _bookingMessageBroker;
         private IBookingRepository _bookingRepository;
-        private readonly string _endPoint = ConfigurationManager.AppSettings["ServiceBusEndPoint"];
-        private readonly string _queueName = ConfigurationManager.AppSettings["ServiceBusQueueName"];
+        private readonly string _endPoint = KeyVault.GetValue("AZURE_SERVICE_BUS_ENDPOINT");
+        private readonly string _queueName = KeyVault.GetValue("RESERVATION_QUEUE_NAME");
 
         /// <summary>
         /// Initializes a new instance of BookingServiceActor
@@ -33,8 +35,6 @@ namespace Blissmo.BookingServiceActor
         public BookingServiceActor(ActorService actorService, ActorId actorId)
             : base(actorService, actorId)
         {
-            this._bookingMessageBroker = new ServiceBusMessageBroker();
-            this._bookingRepository = new BookingRepository(this.StateManager);
         }
 
         /// <summary>
@@ -45,7 +45,8 @@ namespace Blissmo.BookingServiceActor
         {
             ActorEventSource.Current.ActorMessage(this, "Actor activated.");
 
-            this._bookingMessageBroker = new ServiceBusMessageBroker();
+            this._bookingMessageBroker = new RabbitMQ(); // new ServiceBusMessageBroker();
+            this._bookingRepository = new BookingRepository(this.StateManager);
 
             return base.OnActivateAsync(); //this.StateManager.TryAddStateAsync("count", 0);
         }
@@ -59,11 +60,28 @@ namespace Blissmo.BookingServiceActor
         /// <returns></returns>
         async Task IBookingServiceActor.AddBooking(Booking booking, CancellationToken cancellationToken)
         {
-            await this._bookingMessageBroker.SendMessageAsync(
-                _endPoint,
-                _queueName, 
-                booking);
-            await this._bookingRepository.AddBooking(booking);
+            //var connection = new BrokerConnection { EndPoint = _endPoint, QueueName = _queueName };
+            var connection = new BrokerConnection
+            {
+                EndPoint = KeyVault.GetValue("RABBITMQ_ENDPOINT"),
+                Port = Convert.ToInt32(KeyVault.GetValue("RABBITMQ_PORT")),
+                QueueName = _queueName,
+                UserName = "user",
+                Password = "eXile1234567"
+            };
+
+            try
+            {
+                await this._bookingMessageBroker.SendMessageAsync(
+                     connection,
+                     booking);
+                await this._bookingRepository.AddBooking(booking);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

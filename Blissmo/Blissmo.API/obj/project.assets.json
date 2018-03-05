@@ -16,6 +16,20 @@
           "lib/net45/AutoMapper.dll": {}
         }
       },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/3.2.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "6.1.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyModel": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -2038,6 +2052,19 @@
           "lib/net45/Remotion.Linq.dll": {}
         }
       },
+      "Sendgrid/9.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "System.Net.Http": "4.0.0"
+        },
+        "compile": {
+          "lib/net452/SendGrid.dll": {}
+        },
+        "runtime": {
+          "lib/net452/SendGrid.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2388,6 +2415,18 @@
         "type": "package",
         "frameworkAssemblies": [
           "System.Core"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Net.Http/4.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Net.Http"
         ],
         "compile": {
           "ref/net45/_._": {}
@@ -2883,6 +2922,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Microsoft.ServiceFabric.Data": "3.0.456",
+          "Sendgrid": "9.9.0",
           "WindowsAzure.ServiceBus": "4.1.7"
         },
         "compile": {
@@ -2934,6 +2974,20 @@
         },
         "runtime": {
           "lib/net45/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/3.2.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "6.1.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyModel": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -4713,6 +4767,19 @@
           "lib/net45/Remotion.Linq.dll": {}
         }
       },
+      "Sendgrid/9.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "System.Net.Http": "4.0.0"
+        },
+        "compile": {
+          "lib/net452/SendGrid.dll": {}
+        },
+        "runtime": {
+          "lib/net452/SendGrid.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -5033,6 +5100,18 @@
         "type": "package",
         "frameworkAssemblies": [
           "System.Core"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Net.Http/4.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Net.Http"
         ],
         "compile": {
           "ref/net45/_._": {}
@@ -5472,6 +5551,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Microsoft.ServiceFabric.Data": "3.0.456",
+          "Sendgrid": "9.9.0",
           "WindowsAzure.ServiceBus": "4.1.7"
         },
         "compile": {
@@ -5527,6 +5607,16 @@
         "lib/netstandard1.1/AutoMapper.xml",
         "lib/netstandard1.3/AutoMapper.dll",
         "lib/netstandard1.3/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/3.2.0": {
+      "sha512": "528nEpAwniNn8Z6Ae9qTiM/kN4f0BxmWE9mDMEkqKKGxbuElmv6Kj9DVvTXECJkIt6ARerb9+vYbOifNpcwvXQ==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/3.2.0",
+      "files": [
+        "automapper.extensions.microsoft.dependencyinjection.3.2.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
     "Libuv/1.10.0": {
@@ -7406,6 +7496,21 @@
         "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.xml"
       ]
     },
+    "Sendgrid/9.9.0": {
+      "sha512": "3v4aIYXqTvhnozBvpCyf+U9DMiZzN9s4m7tpl8RjVHRN0IUKSFwJ0eio7GVjT03vTTUOXhOY8M+15zLYzQGhYQ==",
+      "type": "package",
+      "path": "sendgrid/9.9.0",
+      "files": [
+        "lib/net452/SendGrid.dll",
+        "lib/net452/SendGrid.pdb",
+        "lib/net452/SendGrid.xml",
+        "lib/netstandard1.3/SendGrid.dll",
+        "lib/netstandard1.3/SendGrid.pdb",
+        "lib/netstandard1.3/SendGrid.xml",
+        "sendgrid.9.9.0.nupkg.sha512",
+        "sendgrid.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -8623,6 +8728,36 @@
         "ref/xamarinwatchos10/_._",
         "system.linq.queryable.4.0.1.nupkg.sha512",
         "system.linq.queryable.nuspec"
+      ]
+    },
+    "System.Net.Http/4.0.0": {
+      "sha512": "mZuAl7jw/mFY8jUq4ITKECxVBh9a8SJt9BC/+lJbmo7cRKspxE3PsITz+KiaCEsexN5WYPzwBOx0oJH/0HlPyQ==",
+      "type": "package",
+      "path": "system.net.http/4.0.0",
+      "files": [
+        "System.Net.Http.4.0.0.nupkg.sha512",
+        "System.Net.Http.nuspec",
+        "lib/DNXCore50/System.Net.Http.dll",
+        "lib/net45/_._",
+        "lib/netcore50/System.Net.Http.dll",
+        "lib/win8/_._",
+        "lib/wpa81/_._",
+        "ref/dotnet/System.Net.Http.dll",
+        "ref/dotnet/System.Net.Http.xml",
+        "ref/dotnet/de/System.Net.Http.xml",
+        "ref/dotnet/es/System.Net.Http.xml",
+        "ref/dotnet/fr/System.Net.Http.xml",
+        "ref/dotnet/it/System.Net.Http.xml",
+        "ref/dotnet/ja/System.Net.Http.xml",
+        "ref/dotnet/ko/System.Net.Http.xml",
+        "ref/dotnet/ru/System.Net.Http.xml",
+        "ref/dotnet/zh-hans/System.Net.Http.xml",
+        "ref/dotnet/zh-hant/System.Net.Http.xml",
+        "ref/net45/_._",
+        "ref/netcore50/System.Net.Http.dll",
+        "ref/netcore50/System.Net.Http.xml",
+        "ref/win8/_._",
+        "ref/wpa81/_._"
       ]
     },
     "System.Numerics.Vectors/4.4.0": {
@@ -10275,6 +10410,7 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.1": [
       "AutoMapper >= 6.2.2",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 3.2.0",
       "Blissmo.BookingServiceActor.Interfaces >= 1.0.0",
       "Blissmo.ChatService.Interfaces >= 1.0.0",
       "Blissmo.SearchService.Interface >= 1.0.0",
@@ -10356,6 +10492,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[6.2.2, )"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[3.2.0, )"
           },
           "Microsoft.AspNetCore": {
             "target": "Package",

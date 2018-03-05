@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Fabric;
 using System.Linq;
 using System.Threading.Tasks;
 using Blissmo.API.Handlers;
 using Blissmo.API.Mapper;
 using Blissmo.API.Model;
+using Blissmo.Helper.MailProvider;
 using Blissmo.Helper.MessageBrokerProvider;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,7 +41,8 @@ namespace Blissmo.API
             //var endpoint = Configuration.GetSection("MessageBroker:EndPoint");
             //services.Configure<MessageBroker>(Configuration.GetSection("MessageBroker"));
             services.AddSingleton<IEventHandler, Handlers.EventHandler>();
-            services.AddTransient<IMessageBroker, ServiceBusMessageBroker>();
+            services.AddSingleton<IEmailProvider, EmailProvider>();
+            services.AddTransient<IMessageBroker, RabbitMQ>(); //ServiceBusMessageBroker
 
             services.AddMvc();
         }
@@ -51,6 +54,9 @@ namespace Blissmo.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            NotificationEventsHandler.IEmailProvider = app.ApplicationServices.GetService<IEmailProvider>();
+            NotificationEventsHandler.ServiceContext = app.ApplicationServices.GetService<StatelessServiceContext>();
 
             AutoMapperConfiguration.Configure();
             app.UseMvc();

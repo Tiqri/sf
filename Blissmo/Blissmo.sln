@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.BookingServiceActor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.BookingServiceActor.Interfaces", "Blissmo.BookingServiceActor.Interfaces\Blissmo.BookingServiceActor.Interfaces.csproj", "{1BB9B79A-1365-494B-89BC-4D14E07F1C89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blissmo.TheaterMockWebJob", "Blissmo.TheaterMockWebJob\Blissmo.TheaterMockWebJob.csproj", "{42B9EA79-6E47-48B5-865D-2743BB2E92E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,14 @@ Global
 		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Release|Any CPU.ActiveCfg = Release|x64
 		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Release|x64.ActiveCfg = Release|x64
 		{1BB9B79A-1365-494B-89BC-4D14E07F1C89}.Release|x64.Build.0 = Release|x64
+		{42B9EA79-6E47-48B5-865D-2743BB2E92E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B9EA79-6E47-48B5-865D-2743BB2E92E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B9EA79-6E47-48B5-865D-2743BB2E92E8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{42B9EA79-6E47-48B5-865D-2743BB2E92E8}.Debug|x64.Build.0 = Debug|Any CPU
+		{42B9EA79-6E47-48B5-865D-2743BB2E92E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B9EA79-6E47-48B5-865D-2743BB2E92E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B9EA79-6E47-48B5-865D-2743BB2E92E8}.Release|x64.ActiveCfg = Release|Any CPU
+		{42B9EA79-6E47-48B5-865D-2743BB2E92E8}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

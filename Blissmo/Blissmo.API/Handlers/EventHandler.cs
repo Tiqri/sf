@@ -1,7 +1,9 @@
 ﻿using Blissmo.API.Model;
+using Blissmo.Helper.KeyVault;
 using Blissmo.Helper.MessageBrokerProvider;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using System;
 using System.Configuration;
 
 namespace Blissmo.API.Handlers
@@ -20,9 +22,17 @@ namespace Blissmo.API.Handlers
         public void Register()
         {
             //this._configuration["MessageBroker:EndPoint"] this._configuration["MessageBroker:ReservationResponseQueueName"]
+            //var connection = new BrokerConnection { EndPoint = KeyVault.GetValue("AZURE_SERVICE_BUS_ENDPOINT"), QueueName = KeyVault.GetValue("RESERVATION_RESPONSE_QUEUE_NAME") };
+            var connection = new BrokerConnection
+            {
+                EndPoint = KeyVault.GetValue("RABBITMQ_ENDPOINT"),
+                Port = Convert.ToInt32(KeyVault.GetValue("RABBITMQ_PORT")),
+                QueueName = KeyVault.GetValue("RESERVATION_RESPONSE_QUEUE_NAME"),
+                UserName = "user",
+                Password = "eXile1234567"
+            };
             _messageBroker.ReceiveMessageAsync(
-                connectionEndPoint: "Endpoint=sb://blissmo.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=BT1A0IXPd6goWbJ4PSidrtMMIQXcKNh4TYJAJcVf364=", 
-                queueName: "reservationresponse", 
+                connection,
                 actionEvent: NotificationEventsHandler.NotificationReceived
             );
         }
@@ -30,6 +40,7 @@ namespace Blissmo.API.Handlers
         public void Deregister()
         {
             //throw new System.NotImplementedException();
+            _messageBroker.Dispose();
         }
     }
 }
