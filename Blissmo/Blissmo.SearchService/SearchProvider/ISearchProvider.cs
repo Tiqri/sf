@@ -13,6 +13,8 @@ namespace Blissmo.SearchService.SearchProvider
 
         Task<SearchIndexClient> CreateSearchIndexAsync(string searchServiceName, string searchServiceKey, string indexName);
 
+        Task<bool> IsAnyIndexExists(SearchServiceClient searchClient, string indexName);
+
         Task DeleteIndexIfExistsAsync(SearchServiceClient searchClient, string indexName);
 
         Task CreateIndexAsync<T>(SearchServiceClient searchClient, string indexName) where T : class;

@@ -44,7 +44,7 @@
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Blissmo.SearchService" ServicePackageActivationMode="ExclusiveProcess">
       <StatefulService ServiceTypeName="Blissmo.SearchServiceType" TargetReplicaSetSize="[Blissmo.SearchService_TargetReplicaSetSize]" MinReplicaSetSize="[Blissmo.SearchService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[Blissmo.SearchService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+        <UniformInt64Partition PartitionCount="[Blissmo.SearchService_PartitionCount]" LowKey="0" HighKey="25" />
       </StatefulService>
     </Service>
     <Service Name="Blissmo.API" ServicePackageActivationMode="ExclusiveProcess">

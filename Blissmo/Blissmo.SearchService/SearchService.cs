@@ -13,6 +13,9 @@ using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Blissmo.SearchService.SearchProvider;
+using Microsoft.ServiceFabric.Data.Collections;
+using Microsoft.ServiceFabric.Data;
+using Blissmo.Helper.QueryHelper;
 
 namespace Blissmo.SearchService
 {
@@ -55,11 +58,14 @@ namespace Blissmo.SearchService
             _searchProvider = new SearchProvider.SearchProvider();
 
             var searchClient = await _searchProvider.CreateSearchServiceAsync(_searchServiceName, _adminApiKey);
-            await _searchProvider.DeleteIndexIfExistsAsync(searchClient, _indexName);
-            await _searchProvider.CreateIndexAsync<Movie>(searchClient, _indexName);
+            if (!await _searchProvider.IsAnyIndexExists(searchClient, _indexName))
+            {
+                await _searchProvider.DeleteIndexIfExistsAsync(searchClient, _indexName);
+                await _searchProvider.CreateIndexAsync<Movie>(searchClient, _indexName);
 
-            ISearchIndexClient indexClient = searchClient.Indexes.GetClient(_indexName);
-            await _searchProvider.SetDataSourceAsync(indexClient);
+                ISearchIndexClient indexClient = searchClient.Indexes.GetClient(_indexName);
+                await _searchProvider.SetDataSourceAsync(indexClient);
+            }
         }
 
         public async Task<IList<Movie>> SearchMovies(Interface.Model.SearchParameters searchParameters)
@@ -67,25 +73,56 @@ namespace Blissmo.SearchService
             Microsoft.Azure.Search.Models.SearchParameters parameters;
             DocumentSearchResult<Movie> results;
             IList<Movie> resultSet = new List<Movie>();
-            ISearchIndexClient indexClientForQueries = 
-                await _searchProvider.CreateSearchIndexAsync(_searchServiceName, _adminApiKey, _indexName);
 
-            parameters =
-                new Microsoft.Azure.Search.Models.SearchParameters()
-                {
-                    Select = searchParameters.Select,
-                    Filter = searchParameters.Filter,
-                    OrderBy = searchParameters.OrderBy,
-                    Top = searchParameters.Top,
-                };
-
-            results = await indexClientForQueries.Documents.SearchAsync<Movie>(searchParameters.SearchTerm, parameters);
-            results.Results.ToList().ForEach(i =>
+            resultSet = await GetMovieFromCache(searchParameters.SearchTerm);
+            if (resultSet == null || !resultSet.Any())
             {
-                resultSet.Add(i.Document);
-            });
+                resultSet = new List<Movie>();
 
+                ISearchIndexClient indexClientForQueries =
+                  await _searchProvider.CreateSearchIndexAsync(_searchServiceName, _adminApiKey, _indexName);
+
+                parameters =
+                    new Microsoft.Azure.Search.Models.SearchParameters()
+                    {
+                        Select = searchParameters.Select,
+                        Filter = searchParameters.Filter,
+                        OrderBy = searchParameters.OrderBy,
+                        Top = searchParameters.Top,
+                    };
+
+                results = await indexClientForQueries.Documents.SearchAsync<Movie>(searchParameters.SearchTerm, parameters);
+                results.Results.ToList().ForEach(i =>
+                {
+                    resultSet.Add(i.Document);
+                });
+
+                StoreSeachCache(searchParameters.SearchTerm, resultSet);
+            }
+            
             return resultSet;
+        }
+
+        private async Task<IList<Movie>> GetMovieFromCache(string searchTerm)
+        {
+            var movieReliableDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, IList<Movie>>>("SearchCache");
+
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                ConditionalValue<IList<Movie>> movieList = await movieReliableDictionary.TryGetValueAsync(tx, searchTerm);
+
+                return movieList.HasValue ? movieList.Value : null;
+            }
+        }
+
+        private async void StoreSeachCache(string searchTerm, IList<Movie> searchResult)
+        {
+            var searchState = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, IList<Movie>>>("SearchCache");
+            using (ITransaction tx = this.StateManager.CreateTransaction())
+            {
+                bool addResult = await searchState.TryAddAsync(tx, searchTerm, searchResult);
+                await tx.CommitAsync();
+            }
         }
     }
 }

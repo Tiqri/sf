@@ -25,6 +25,11 @@ namespace Blissmo.SearchService.SearchProvider
                 new SearchIndexClient(searchServiceName, indexName, new SearchCredentials(searchServiceKey))
             );
         }
+        
+        public async Task<bool> IsAnyIndexExists(SearchServiceClient searchClient, string indexName)
+        {
+            return await searchClient.Indexes.ExistsAsync(indexName);
+        }
 
         public async Task DeleteIndexIfExistsAsync(SearchServiceClient searchClient, string indexName)
         {
@@ -46,7 +51,7 @@ namespace Blissmo.SearchService.SearchProvider
         public async Task SetDataSourceAsync(ISearchIndexClient searchIndexClient)
         {
             var movies = new Movie[]
-{
+            {
                 new Movie()
                 {
                     tmsId = "1",

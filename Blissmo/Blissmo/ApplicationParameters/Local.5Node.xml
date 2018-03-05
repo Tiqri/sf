@@ -12,7 +12,7 @@
     <Parameter Name="Blissmo.UserService_TargetReplicaSetSize" Value="3" />
     <Parameter Name="ChatServiceActorService_PartitionCount" Value="1" />
     <Parameter Name="BookingServiceActorService_PartitionCount" Value="1" />-->
-    <Parameter Name="Blissmo.SearchService_PartitionCount" Value="8" />
+    <Parameter Name="Blissmo.SearchService_PartitionCount" Value="26" />
     <Parameter Name="Blissmo.SearchService_MinReplicaSetSize" Value="3" />
     <Parameter Name="Blissmo.SearchService_TargetReplicaSetSize" Value="3" />
     <!-- <Parameter Name="Blissmo.API_InstanceCount" Value="2" />-->

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Fabric;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Blissmo.API.Model;
 using Blissmo.SearchService.Interface;
@@ -16,13 +18,15 @@ namespace Blissmo.API.Controllers
     [Route("api/Search")]
     public class SearchController : Controller
     {
-        private readonly ISearchService _searchService;
+        //private readonly ISearchService _searchService;
+        private readonly Uri _searchServiceUri = new Uri("fabric:/Blissmo/Blissmo.SearchService");        
+        private readonly ServicePartitionResolver _servicePartitionResolver = ServicePartitionResolver.GetDefault();
 
         public SearchController()
         {
-            _searchService = ServiceProxy.Create<ISearchService>(
-              new Uri("fabric:/Blissmo/Blissmo.SearchService"),
-              new ServicePartitionKey(0));
+            //_searchService = ServiceProxy.Create<ISearchService>(
+            //  _searchServiceUri,
+            //  new ServicePartitionKey(0));
         }
 
         // GET api/Search
@@ -31,6 +35,11 @@ namespace Blissmo.API.Controllers
         {
             try
             {
+                var partitionKey = await GetSearchPartitionKeyAsync(text);
+                var _searchService = ServiceProxy.Create<ISearchService>(
+                    _searchServiceUri,
+                    partitionKey);
+
                 var results = await _searchService.SearchMovies(new SearchParameters
                 {
                     Select = new[] { "tmsId", "title", "longDescription" },
@@ -52,7 +61,23 @@ namespace Blissmo.API.Controllers
 
                 throw ex;
             }
+        }
 
+        private async Task<ServicePartitionKey> GetSearchPartitionKeyAsync(string searchTerm)
+        {
+            char firstLetterOfSearchTerm = searchTerm.First();
+            if (Char.IsLetter(firstLetterOfSearchTerm))
+            {
+                ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfSearchTerm) - 'A');
+                return partitionKey;
+            }
+
+            throw new Exception("Invalid argument!");
+            //var cancelToken = new CancellationTokenSource();
+            //ResolvedServicePartition resolvedServicePartition = await this._servicePartitionResolver.ResolveAsync(_searchServiceUri, partitionKey, cancelToken.Token);
+            //ResolvedServiceEndpoint resolvedServiceEndpoint = resolvedServicePartition.GetEndpoint();
+            //resolvedServicePartition.Info.
+            //cancelToken.Cancel(false);
         }
     }
 }
