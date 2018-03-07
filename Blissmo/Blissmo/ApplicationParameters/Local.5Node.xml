@@ -1,25 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/Blissmo" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <!--
-    <Parameter Name="Blissmo.SearchService_PartitionCount" Value="10" />
-    <Parameter Name="Blissmo.SearchService_MinReplicaSetSize" Value="3" />
-    <Parameter Name="Blissmo.SearchService_TargetReplicaSetSize" Value="3" />
-    <Parameter Name="Blissmo.API_PartitionCount" Value="10" />
-    <Parameter Name="Blissmo.API_InstanceCount" Value="3" />
-    <Parameter Name="Blissmo.UserService_PartitionCount" Value="10" />
-    <Parameter Name="Blissmo.UserService_MinReplicaSetSize" Value="3" />
-    <Parameter Name="Blissmo.UserService_TargetReplicaSetSize" Value="3" />
-    <Parameter Name="ChatServiceActorService_PartitionCount" Value="1" />
-    <Parameter Name="BookingServiceActorService_PartitionCount" Value="1" />-->
     <Parameter Name="Blissmo.SearchService_PartitionCount" Value="26" />
-    <Parameter Name="Blissmo.SearchService_MinReplicaSetSize" Value="3" />
+    <Parameter Name="Blissmo.SearchService_MinReplicaSetSize" Value="2" />
     <Parameter Name="Blissmo.SearchService_TargetReplicaSetSize" Value="3" />
-    <!-- <Parameter Name="Blissmo.API_InstanceCount" Value="2" />-->
-    <Parameter Name="Blissmo.UserService_PartitionCount" Value="8" />
-    <Parameter Name="Blissmo.UserService_MinReplicaSetSize" Value="3" />
-    <Parameter Name="Blissmo.UserService_TargetReplicaSetSize" Value="3" />
+    <Parameter Name="Blissmo.API_InstanceCount" Value="5" />
+    <Parameter Name="Blissmo.UserService_PartitionCount" Value="1" />
+    <Parameter Name="Blissmo.UserService_MinReplicaSetSize" Value="1" />
+    <Parameter Name="Blissmo.UserService_TargetReplicaSetSize" Value="1" />
     <Parameter Name="ChatServiceActorService_PartitionCount" Value="1" />
     <Parameter Name="BookingServiceActorService_PartitionCount" Value="1" />
+    <Parameter Name="BookingServiceActorService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="BookingServiceActorService_MinReplicaSetSize" Value="1" />
+    <Parameter Name="ChatServiceActorService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="ChatServiceActorService_MinReplicaSetSize" Value="1" />
+    <Parameter Name="RecommendMoviesActorService_PartitionCount" Value="1" />
   </Parameters>
 </Application>

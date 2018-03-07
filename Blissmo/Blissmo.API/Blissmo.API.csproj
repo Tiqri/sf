@@ -38,8 +38,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Blissmo.BookingServiceActor.Interfaces\Blissmo.BookingServiceActor.Interfaces.csproj" />
     <ProjectReference Include="..\Blissmo.ChatService.Interfaces\Blissmo.ChatService.Interfaces.csproj" />
-    <ProjectReference Include="..\Blissmo.SearchService.Interface\Blissmo.SearchService.Interface.csproj" />
-    <ProjectReference Include="..\Blissmo.UserService.Interface\Blissmo.UserService.Interface.csproj" />
+    <ProjectReference Include="..\Blissmo.Helpers\Blissmo.Helpers.csproj" />
+    <ProjectReference Include="..\Blissmo.RecommendMoviesActor.Interfaces\Blissmo.RecommendMoviesActor.Interfaces.csproj" />
+    <ProjectReference Include="..\Blissmo.SearchService.Interfaces\Blissmo.SearchService.Interfaces.csproj" />
+    <ProjectReference Include="..\Blissmo.UserService.Interfaces\Blissmo.UserService.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>

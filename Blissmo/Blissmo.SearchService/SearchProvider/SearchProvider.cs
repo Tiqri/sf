@@ -1,5 +1,5 @@
-﻿using Blissmo.Helper.KeyVault;
-using Blissmo.SearchService.Interface.Model;
+﻿using Blissmo.Helpers.KeyVault;
+using Blissmo.SearchService.Interfaces.Model;
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
 using System;

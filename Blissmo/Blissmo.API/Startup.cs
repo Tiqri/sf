@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Fabric;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Fabric;
 using Blissmo.API.Handlers;
 using Blissmo.API.Mapper;
-using Blissmo.API.Model;
-using Blissmo.Helper.MailProvider;
-using Blissmo.Helper.MessageBrokerProvider;
+using Blissmo.Helpers.MailProvider;
+using Blissmo.Helpers.MessageBrokerProvider;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace Blissmo.API
 {

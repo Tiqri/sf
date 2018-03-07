@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,8 +45,8 @@
       <HintPath>..\packages\Microsoft.ServiceFabric.Data.3.0.456\lib\net45\Microsoft.ServiceFabric.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ServiceFabric.Data.Interfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.ServiceFabric.Data.3.0.456\lib\net45\Microsoft.ServiceFabric.Data.Interfaces.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ServiceFabric.Diagnostics, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <HintPath>..\packages\Microsoft.ServiceFabric.Diagnostics.Internal.3.0.456\lib\net45\Microsoft.ServiceFabric.Diagnostics.dll</HintPath>
@@ -104,13 +106,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Blissmo.Helper\Blissmo.Helper.csproj">
-      <Project>{5ff43c02-d8d4-44ec-952a-1fb3919f6aaf}</Project>
-      <Name>Blissmo.Helper</Name>
+    <ProjectReference Include="..\Blissmo.Helpers\Blissmo.Helpers.csproj">
+      <Project>{66C27A7F-5222-496A-9AEA-C4EB3575E9F2}</Project>
+      <Name>Blissmo.Helpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Blissmo.UserService.Interface\Blissmo.UserService.Interface.csproj">
-      <Project>{d195e65e-a6f2-4db6-95f4-27acf823af28}</Project>
-      <Name>Blissmo.UserService.Interface</Name>
+    <ProjectReference Include="..\Blissmo.UserService.Interfaces\Blissmo.UserService.Interfaces.csproj">
+      <Project>{e5d8a826-b941-4c73-b4e1-daacc10b9b8a}</Project>
+      <Name>Blissmo.UserService.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

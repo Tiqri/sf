@@ -27,20 +27,12 @@ namespace Blissmo.API.Controllers
         [HttpPost]
         public async Task Post([FromBody]ApiBooking booking)
         {
-            try
-            {
-                var bookingId = booking.Id;
-                IBookingServiceActor bookingserviceActor = GetBookingServiceActor(ref bookingId);
-                booking.Id = bookingId;
+            var bookingId = booking.Id;
+            IBookingServiceActor bookingserviceActor = GetBookingServiceActor(ref bookingId);
+            booking.Id = bookingId;
 
-                var mappedObject = AutoMapper.Mapper.Map<ApiBooking, Booking>(booking);
-                await bookingserviceActor.AddBooking(mappedObject, CancellationToken.None);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
+            var mappedObject = AutoMapper.Mapper.Map<ApiBooking, Booking>(booking);
+            await bookingserviceActor.AddBooking(mappedObject, CancellationToken.None);
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Fabric;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Blissmo.Helper.KeyVault;
-using Blissmo.SearchService.Interface;
-using Blissmo.SearchService.Interface.Model;
+using Blissmo.Helpers.KeyVault;
+using Blissmo.SearchService.Interfaces;
+using Blissmo.SearchService.Interfaces.Model;
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
@@ -15,7 +15,7 @@ using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Blissmo.SearchService.SearchProvider;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Data;
-using Blissmo.Helper.QueryHelper;
+using Blissmo.Helpers.QueryHelper;
 
 namespace Blissmo.SearchService
 {
@@ -68,7 +68,7 @@ namespace Blissmo.SearchService
             }
         }
 
-        public async Task<IList<Movie>> SearchMovies(Interface.Model.SearchParameters searchParameters)
+        public async Task<IList<Movie>> SearchMovies(Interfaces.Model.SearchParameters searchParameters)
         {
             Microsoft.Azure.Search.Models.SearchParameters parameters;
             DocumentSearchResult<Movie> results;

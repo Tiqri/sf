@@ -138,9 +138,9 @@
       <Project>{1BB9B79A-1365-494B-89BC-4D14E07F1C89}</Project>
       <Name>Blissmo.BookingServiceActor.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Blissmo.Helper\Blissmo.Helper.csproj">
-      <Project>{5ff43c02-d8d4-44ec-952a-1fb3919f6aaf}</Project>
-      <Name>Blissmo.Helper</Name>
+    <ProjectReference Include="..\Blissmo.Helpers\Blissmo.Helpers.csproj">
+      <Project>{66C27A7F-5222-496A-9AEA-C4EB3575E9F2}</Project>
+      <Name>Blissmo.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

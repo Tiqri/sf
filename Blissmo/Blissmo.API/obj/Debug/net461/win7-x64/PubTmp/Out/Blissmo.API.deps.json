@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.1/win7-x64",
-    "signature": "eceaeba3aae18ab7500b39eefd7cf926d4c33094"
+    "signature": "b7afbad25fcc817ab03f12efe98cda7b0951799d"
   },
   "compilationOptions": {
     "defines": [
@@ -27,8 +27,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.2.0",
           "Blissmo.BookingServiceActor.Interfaces": "1.0.0",
           "Blissmo.ChatService.Interfaces": "1.0.0",
-          "Blissmo.SearchService.Interface": "1.0.0",
-          "Blissmo.UserService.Interface": "1.0.0",
+          "Blissmo.Helpers": "1.0.0",
+          "Blissmo.RecommendMoviesActor.Interfaces": "1.0.0",
+          "Blissmo.SearchService.Interfaces": "1.0.0",
+          "Blissmo.UserService.Interfaces": "1.0.0",
           "Microsoft.AspNetCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc": "2.0.2",
           "Microsoft.AspNetCore.StaticFiles": "2.0.1",
@@ -110,7 +112,7 @@
           "System.Linq.Expressions.Reference": "4.1.2.0",
           "System.Linq.Parallel": "4.0.1.0",
           "System.Linq.Queryable.Reference": "4.0.1.0",
-          "System.Net.Http.Reference": "4.2.0.0",
+          "System.Net.Http": "4.2.0.0",
           "System.Net.NameResolution": "4.0.2.0",
           "System.Net.NetworkInformation": "4.1.2.0",
           "System.Net.Ping": "4.0.2.0",
@@ -509,7 +511,7 @@
           "System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http.Reference/4.2.0.0": {
+      "System.Net.Http/4.2.0.0": {
         "compile": {
           "System.Net.Http.dll": {}
         }
@@ -1347,17 +1349,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.Azure.Search/4.0.2-preview": {
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.10",
-          "Microsoft.Rest.ClientRuntime.Azure": "3.3.10",
-          "Microsoft.Spatial": "7.2.0",
-          "Newtonsoft.Json": "10.0.1"
-        },
-        "compile": {
-          "lib/net452/Microsoft.Azure.Search.dll": {}
-        }
-      },
       "Microsoft.CodeAnalysis.Analyzers/1.1.0": {},
       "Microsoft.CodeAnalysis.Common/2.3.1": {
         "dependencies": {
@@ -1749,23 +1740,6 @@
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
-      "Microsoft.Rest.ClientRuntime/2.3.10": {
-        "dependencies": {
-          "Newtonsoft.Json": "10.0.1"
-        },
-        "compile": {
-          "lib/net452/Microsoft.Rest.ClientRuntime.dll": {}
-        }
-      },
-      "Microsoft.Rest.ClientRuntime.Azure/3.3.10": {
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.10",
-          "Newtonsoft.Json": "10.0.1"
-        },
-        "compile": {
-          "lib/net452/Microsoft.Rest.ClientRuntime.Azure.dll": {}
-        }
-      },
       "Microsoft.ServiceFabric/6.1.456": {
         "compile": {
           "ref/netstandard2.0/Microsoft.ServiceFabric.Internal.Strings.dll": {},
@@ -1852,11 +1826,6 @@
         },
         "compile": {
           "ref/netstandard2.0/Microsoft.ServiceFabric.Services.Remoting.dll": {}
-        }
-      },
-      "Microsoft.Spatial/7.2.0": {
-        "compile": {
-          "lib/portable-net45+win8+wpa81/Microsoft.Spatial.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
@@ -1992,15 +1961,6 @@
           "lib/net45/Remotion.Linq.dll": {}
         }
       },
-      "Sendgrid/9.9.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "10.0.1",
-          "System.Net.Http": "4.0.0"
-        },
-        "compile": {
-          "lib/net452/SendGrid.dll": {}
-        }
-      },
       "System.AppContext/4.3.0": {},
       "System.Buffers/4.4.0": {
         "compile": {
@@ -2096,7 +2056,6 @@
       "System.Linq/4.3.0": {},
       "System.Linq.Expressions/4.3.0": {},
       "System.Linq.Queryable/4.0.1": {},
-      "System.Net.Http/4.0.0": {},
       "System.Numerics.Vectors/4.4.0": {
         "compile": {
           "ref/net46/System.Numerics.Vectors.dll": {}
@@ -2181,11 +2140,6 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
-      "WindowsAzure.ServiceBus/4.1.7": {
-        "compile": {
-          "lib/net45/Microsoft.ServiceBus.dll": {}
-        }
-      },
       "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
         "compile": {
           "Blissmo.BookingServiceActor.Interfaces.dll": {}
@@ -2196,32 +2150,27 @@
           "Blissmo.ChatService.Interfaces.dll": {}
         }
       },
-      "Blissmo.Helper/1.0.0": {
-        "dependencies": {
-          "Microsoft.ServiceFabric.Data": "3.0.456",
-          "Sendgrid": "9.9.0",
-          "WindowsAzure.ServiceBus": "4.1.7"
-        },
+      "Blissmo.Helpers/1.0.0": {
         "compile": {
-          "Blissmo.Helper.dll": {}
+          "Blissmo.Helpers.dll": {}
         }
       },
-      "Blissmo.SearchService.Interface/1.0.0": {
-        "dependencies": {
-          "Microsoft.Azure.Search": "4.0.2-preview",
-          "Microsoft.ServiceFabric.Services.Remoting": "3.0.456"
-        },
+      "Blissmo.RecommendMoviesActor.Interfaces/1.0.0": {
         "compile": {
-          "Blissmo.SearchService.Interface.dll": {}
+          "Blissmo.RecommendMoviesActor.Interfaces.dll": {}
         }
       },
-      "Blissmo.UserService.Interface/1.0.0": {
+      "Blissmo.SearchService.Interfaces/1.0.0": {
+        "compile": {
+          "Blissmo.SearchService.Interfaces.dll": {}
+        }
+      },
+      "Blissmo.UserService.Interfaces/1.0.0": {
         "dependencies": {
-          "Blissmo.Helper": "1.0.0",
-          "Microsoft.ServiceFabric.Services.Remoting": "3.0.456"
+          "Blissmo.Helpers": "1.0.0"
         },
         "compile": {
-          "Blissmo.UserService.Interface.dll": {}
+          "Blissmo.UserService.Interfaces.dll": {}
         }
       }
     },
@@ -2232,8 +2181,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.2.0",
           "Blissmo.BookingServiceActor.Interfaces": "1.0.0",
           "Blissmo.ChatService.Interfaces": "1.0.0",
-          "Blissmo.SearchService.Interface": "1.0.0",
-          "Blissmo.UserService.Interface": "1.0.0",
+          "Blissmo.Helpers": "1.0.0",
+          "Blissmo.RecommendMoviesActor.Interfaces": "1.0.0",
+          "Blissmo.SearchService.Interfaces": "1.0.0",
+          "Blissmo.UserService.Interfaces": "1.0.0",
           "Microsoft.AspNetCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc": "2.0.2",
           "Microsoft.AspNetCore.StaticFiles": "2.0.1",
@@ -2315,7 +2266,7 @@
           "System.Linq.Expressions.Reference": "4.1.2.0",
           "System.Linq.Parallel": "4.0.1.0",
           "System.Linq.Queryable.Reference": "4.0.1.0",
-          "System.Net.Http.Reference": "4.2.0.0",
+          "System.Net.Http": "4.2.0.0",
           "System.Net.NameResolution": "4.0.2.0",
           "System.Net.NetworkInformation": "4.1.2.0",
           "System.Net.Ping": "4.0.2.0",
@@ -2945,17 +2896,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.Azure.Search/4.0.2-preview": {
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.10",
-          "Microsoft.Rest.ClientRuntime.Azure": "3.3.10",
-          "Microsoft.Spatial": "7.2.0",
-          "Newtonsoft.Json": "10.0.1"
-        },
-        "runtime": {
-          "lib/net452/Microsoft.Azure.Search.dll": {}
-        }
-      },
       "Microsoft.CodeAnalysis.Analyzers/1.1.0": {},
       "Microsoft.CodeAnalysis.Common/2.3.1": {
         "dependencies": {
@@ -3347,23 +3287,6 @@
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
-      "Microsoft.Rest.ClientRuntime/2.3.10": {
-        "dependencies": {
-          "Newtonsoft.Json": "10.0.1"
-        },
-        "runtime": {
-          "lib/net452/Microsoft.Rest.ClientRuntime.dll": {}
-        }
-      },
-      "Microsoft.Rest.ClientRuntime.Azure/3.3.10": {
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.10",
-          "Newtonsoft.Json": "10.0.1"
-        },
-        "runtime": {
-          "lib/net452/Microsoft.Rest.ClientRuntime.Azure.dll": {}
-        }
-      },
       "Microsoft.ServiceFabric/6.1.456": {
         "runtime": {
           "runtimes/win/lib/net461/Microsoft.ServiceFabric.Internal.Strings.dll": {},
@@ -3451,40 +3374,6 @@
         },
         "runtime": {
           "runtimes/win/lib/net461/Microsoft.ServiceFabric.Services.Remoting.dll": {}
-        }
-      },
-      "Microsoft.Spatial/7.2.0": {
-        "runtime": {
-          "lib/portable-net45+win8+wpa81/Microsoft.Spatial.dll": {}
-        },
-        "resources": {
-          "lib/portable-net45+win8+wpa81/de/Microsoft.Spatial.resources.dll": {
-            "locale": "de"
-          },
-          "lib/portable-net45+win8+wpa81/es/Microsoft.Spatial.resources.dll": {
-            "locale": "es"
-          },
-          "lib/portable-net45+win8+wpa81/fr/Microsoft.Spatial.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/portable-net45+win8+wpa81/it/Microsoft.Spatial.resources.dll": {
-            "locale": "it"
-          },
-          "lib/portable-net45+win8+wpa81/ja/Microsoft.Spatial.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/portable-net45+win8+wpa81/ko/Microsoft.Spatial.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/portable-net45+win8+wpa81/ru/Microsoft.Spatial.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/portable-net45+win8+wpa81/zh-Hans/Microsoft.Spatial.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/portable-net45+win8+wpa81/zh-Hant/Microsoft.Spatial.resources.dll": {
-            "locale": "zh-Hant"
-          }
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
@@ -3620,15 +3509,6 @@
           "lib/net45/Remotion.Linq.dll": {}
         }
       },
-      "Sendgrid/9.9.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "10.0.1",
-          "System.Net.Http": "4.0.0"
-        },
-        "runtime": {
-          "lib/net452/SendGrid.dll": {}
-        }
-      },
       "System.AppContext/4.3.0": {},
       "System.Buffers/4.4.0": {
         "runtime": {
@@ -3724,7 +3604,6 @@
       "System.Linq/4.3.0": {},
       "System.Linq.Expressions/4.3.0": {},
       "System.Linq.Queryable/4.0.1": {},
-      "System.Net.Http/4.0.0": {},
       "System.Numerics.Vectors/4.4.0": {
         "runtime": {
           "lib/net46/System.Numerics.Vectors.dll": {}
@@ -3813,11 +3692,6 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
-      "WindowsAzure.ServiceBus/4.1.7": {
-        "runtime": {
-          "lib/net45/Microsoft.ServiceBus.dll": {}
-        }
-      },
       "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
         "runtime": {
           "Blissmo.BookingServiceActor.Interfaces.dll": {}
@@ -3828,32 +3702,56 @@
           "Blissmo.ChatService.Interfaces.dll": {}
         }
       },
-      "Blissmo.Helper/1.0.0": {
-        "dependencies": {
-          "Microsoft.ServiceFabric.Data": "3.0.456",
-          "Sendgrid": "9.9.0",
-          "WindowsAzure.ServiceBus": "4.1.7"
-        },
+      "Blissmo.Helpers/1.0.0": {
         "runtime": {
-          "Blissmo.Helper.dll": {}
+          "Blissmo.Helpers.dll": {}
         }
       },
-      "Blissmo.SearchService.Interface/1.0.0": {
-        "dependencies": {
-          "Microsoft.Azure.Search": "4.0.2-preview",
-          "Microsoft.ServiceFabric.Services.Remoting": "3.0.456"
-        },
+      "Blissmo.RecommendMoviesActor.Interfaces/1.0.0": {
         "runtime": {
-          "Blissmo.SearchService.Interface.dll": {}
+          "Blissmo.RecommendMoviesActor.Interfaces.dll": {}
         }
       },
-      "Blissmo.UserService.Interface/1.0.0": {
+      "Blissmo.SearchService.Interfaces/1.0.0": {
+        "runtime": {
+          "Blissmo.SearchService.Interfaces.dll": {}
+        },
+        "resources": {
+          "de/Microsoft.Spatial.resources.dll": {
+            "locale": "de"
+          },
+          "es/Microsoft.Spatial.resources.dll": {
+            "locale": "es"
+          },
+          "fr/Microsoft.Spatial.resources.dll": {
+            "locale": "fr"
+          },
+          "it/Microsoft.Spatial.resources.dll": {
+            "locale": "it"
+          },
+          "ja/Microsoft.Spatial.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/Microsoft.Spatial.resources.dll": {
+            "locale": "ko"
+          },
+          "ru/Microsoft.Spatial.resources.dll": {
+            "locale": "ru"
+          },
+          "zh-Hans/Microsoft.Spatial.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "zh-Hant/Microsoft.Spatial.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Blissmo.UserService.Interfaces/1.0.0": {
         "dependencies": {
-          "Blissmo.Helper": "1.0.0",
-          "Microsoft.ServiceFabric.Services.Remoting": "3.0.456"
+          "Blissmo.Helpers": "1.0.0"
         },
         "runtime": {
-          "Blissmo.UserService.Interface.dll": {}
+          "Blissmo.UserService.Interfaces.dll": {}
         }
       }
     }
@@ -4242,13 +4140,6 @@
       "path": "microsoft.aspnetcore.webutilities/2.0.1",
       "hashPath": "microsoft.aspnetcore.webutilities.2.0.1.nupkg.sha512"
     },
-    "Microsoft.Azure.Search/4.0.2-preview": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Nl8BRQYvQB/MGib7hzkDcIVdLUx4j0wAI/CBgDtkJ4V9JsA+Jz6nlRtMllc2Ip8iZKXgw5ECXwgUPBgpxL44Cw==",
-      "path": "microsoft.azure.search/4.0.2-preview",
-      "hashPath": "microsoft.azure.search.4.0.2-preview.nupkg.sha512"
-    },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -4564,20 +4455,6 @@
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
-    "Microsoft.Rest.ClientRuntime/2.3.10": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-JO9CzV1hvjtrIzq06gJ5nNv7GV24Xz3Y3O9vx7fCe7ndNA0NmD3fZ9JUgFir2UvJ2/+9vvCo/6RXjyfywvQQIw==",
-      "path": "microsoft.rest.clientruntime/2.3.10",
-      "hashPath": "microsoft.rest.clientruntime.2.3.10.nupkg.sha512"
-    },
-    "Microsoft.Rest.ClientRuntime.Azure/3.3.10": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0cN3zl/lYtvClJMWVL5bCWr3iMnCx2/uGt8xbo8txNMJxp5bLKlhErKflVJRWeUfTl2clREt13+rOy/iQ1/RKg==",
-      "path": "microsoft.rest.clientruntime.azure/3.3.10",
-      "hashPath": "microsoft.rest.clientruntime.azure.3.3.10.nupkg.sha512"
-    },
     "Microsoft.ServiceFabric/6.1.456": {
       "type": "package",
       "serviceable": true,
@@ -4640,13 +4517,6 @@
       "sha512": "sha512-122XxPDEQhMUj+NTJW2/s9wWSlyCOdmYF8cJnq7P5eOU9nEL8A/wSfQwpm8HmLorp2spElexyGCwcfCD/NHkTw==",
       "path": "microsoft.servicefabric.services.remoting/3.0.456",
       "hashPath": "microsoft.servicefabric.services.remoting.3.0.456.nupkg.sha512"
-    },
-    "Microsoft.Spatial/7.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qLZ+g9Bfn87Ui9Jbb5loO+5jYCPGlTlV+JowSXXUQmkspSNPoWkbsmLpulbMbNpnTOiBEf/ishpz5GmYi6cSCA==",
-      "path": "microsoft.spatial/7.2.0",
-      "hashPath": "microsoft.spatial.7.2.0.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
       "type": "package",
@@ -4752,13 +4622,6 @@
       "sha512": "sha512-IJn0BqkvwEDpP+2qjvci7n4/a9f7DhKESLWb2/uG4xQh3rTkGTBUz69bI4IivCoKkTFAqjXxYDZw2K/npohjsw==",
       "path": "remotion.linq/2.1.1",
       "hashPath": "remotion.linq.2.1.1.nupkg.sha512"
-    },
-    "Sendgrid/9.9.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3v4aIYXqTvhnozBvpCyf+U9DMiZzN9s4m7tpl8RjVHRN0IUKSFwJ0eio7GVjT03vTTUOXhOY8M+15zLYzQGhYQ==",
-      "path": "sendgrid/9.9.0",
-      "hashPath": "sendgrid.9.9.0.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",
@@ -4955,13 +4818,6 @@
       "sha512": "sha512-bds0wyMkgjCaSok9DtGuYJ8tYaB13j6cW7fBnlC3qfjjEJydjzWG/F128z+0tAFn0vifAHpctWdL5AZiZwBVbg==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
-    },
-    "System.Net.Http/4.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mZuAl7jw/mFY8jUq4ITKECxVBh9a8SJt9BC/+lJbmo7cRKspxE3PsITz+KiaCEsexN5WYPzwBOx0oJH/0HlPyQ==",
-      "path": "system.net.http/4.0.0",
-      "hashPath": "system.net.http.4.0.0.nupkg.sha512"
     },
     "System.Numerics.Vectors/4.4.0": {
       "type": "package",
@@ -5194,13 +5050,6 @@
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     },
-    "WindowsAzure.ServiceBus/4.1.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vmP47P5Piv5phxTkejYpoumm/Mzfk6KIdjCaJp4+E21VNI6fC6AKc0cFdynQxPSCA9uhhLGUSS72QFmTzXm/jA==",
-      "path": "windowsazure.servicebus/4.1.7",
-      "hashPath": "windowsazure.servicebus.4.1.7.nupkg.sha512"
-    },
     "Blissmo.BookingServiceActor.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -5211,17 +5060,22 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Blissmo.Helper/1.0.0": {
+    "Blissmo.Helpers/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Blissmo.SearchService.Interface/1.0.0": {
+    "Blissmo.RecommendMoviesActor.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Blissmo.UserService.Interface/1.0.0": {
+    "Blissmo.SearchService.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Blissmo.UserService.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -5566,7 +5420,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Net.Http.Reference/4.2.0.0": {
+    "System.Net.Http/4.2.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

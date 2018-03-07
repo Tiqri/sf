@@ -1,6 +1,6 @@
 ﻿using Blissmo.API.Model;
-using Blissmo.Helper.KeyVault;
-using Blissmo.Helper.MessageBrokerProvider;
+using Blissmo.Helpers.KeyVault;
+using Blissmo.Helpers.MessageBrokerProvider;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System;
@@ -21,8 +21,6 @@ namespace Blissmo.API.Handlers
 
         public void Register()
         {
-            //this._configuration["MessageBroker:EndPoint"] this._configuration["MessageBroker:ReservationResponseQueueName"]
-            //var connection = new BrokerConnection { EndPoint = KeyVault.GetValue("AZURE_SERVICE_BUS_ENDPOINT"), QueueName = KeyVault.GetValue("RESERVATION_RESPONSE_QUEUE_NAME") };
             var connection = new BrokerConnection
             {
                 EndPoint = KeyVault.GetValue("RABBITMQ_ENDPOINT"),
@@ -31,6 +29,7 @@ namespace Blissmo.API.Handlers
                 UserName = "user",
                 Password = "eXile1234567"
             };
+
             _messageBroker.ReceiveMessageAsync(
                 connection,
                 actionEvent: NotificationEventsHandler.NotificationReceived
@@ -39,7 +38,6 @@ namespace Blissmo.API.Handlers
 
         public void Deregister()
         {
-            //throw new System.NotImplementedException();
             _messageBroker.Dispose();
         }
     }

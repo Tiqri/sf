@@ -35,6 +35,7 @@
     <ProjectReference Include="..\Blissmo.API\Blissmo.API.csproj" />
     <ProjectReference Include="..\Blissmo.BookingServiceActor\Blissmo.BookingServiceActor.csproj" />
     <ProjectReference Include="..\Blissmo.ChatService\Blissmo.ChatService.csproj" />
+    <ProjectReference Include="..\Blissmo.RecommendMoviesActor\Blissmo.RecommendMoviesActor.csproj" />
     <ProjectReference Include="..\Blissmo.SearchService\Blissmo.SearchService.csproj" />
     <ProjectReference Include="..\Blissmo.UserService\Blissmo.UserService.csproj" />
   </ItemGroup>

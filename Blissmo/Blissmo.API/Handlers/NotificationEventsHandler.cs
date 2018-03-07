@@ -1,5 +1,5 @@
 ﻿using Blissmo.API.Model;
-using Blissmo.Helper.MailProvider;
+using Blissmo.Helpers.MailProvider;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

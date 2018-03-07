@@ -1,23 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="BlissmoType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="Blissmo.SearchService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="Blissmo.SearchService_MinReplicaSetSize" DefaultValue="1" />
     <Parameter Name="Blissmo.SearchService_PartitionCount" DefaultValue="1" />
-    <Parameter Name="Blissmo.SearchService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="Blissmo.SearchService_TargetReplicaSetSize" DefaultValue="1" />
     <Parameter Name="Blissmo.API_InstanceCount" DefaultValue="-1" />
-    <Parameter Name="Blissmo.UserService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="Blissmo.UserService_MinReplicaSetSize" DefaultValue="1" />
     <Parameter Name="Blissmo.UserService_PartitionCount" DefaultValue="1" />
-    <Parameter Name="Blissmo.UserService_TargetReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="ChatServiceActorService_PartitionCount" DefaultValue="10" />
-    <Parameter Name="ChatServiceActorService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="ChatServiceActorService_TargetReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="BookingServiceActorService_PartitionCount" DefaultValue="10" />
-    <Parameter Name="BookingServiceActorService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="BookingServiceActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="Blissmo.UserService_TargetReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="ChatServiceActorService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="ChatServiceActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="ChatServiceActorService_TargetReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="BookingServiceActorService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="BookingServiceActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="BookingServiceActorService_TargetReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="RecommendMoviesActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="RecommendMoviesActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="RecommendMoviesActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Blissmo.RecommendMoviesActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.BookingServiceActorPkg" ServiceManifestVersion="1.0.0" />
   </ServiceManifestImport>
@@ -65,6 +71,11 @@
     <Service Name="BookingServiceActorService" GeneratedIdRef="a6bcbab2-751c-4a3d-b1a1-850aaaa446c5|Persisted">
       <StatefulService ServiceTypeName="BookingServiceActorServiceType" TargetReplicaSetSize="[BookingServiceActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BookingServiceActorService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[BookingServiceActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="RecommendMoviesActorService" GeneratedIdRef="040012c3-c13c-49d0-897e-0363ec168a5f|Persisted">
+      <StatefulService ServiceTypeName="RecommendMoviesActorServiceType" TargetReplicaSetSize="[RecommendMoviesActorService_TargetReplicaSetSize]" MinReplicaSetSize="[RecommendMoviesActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[RecommendMoviesActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
   </DefaultServices>

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blissmo.API.Model;
-using Blissmo.UserService.Interface;
-using Blissmo.UserService.Interface.Model;
+using Blissmo.UserService.Interfaces;
+using Blissmo.UserService.Interfaces.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.ServiceFabric.Services.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
@@ -23,7 +23,7 @@ namespace Blissmo.API.Controllers
                 new ServicePartitionKey(0));
         }
 
-        // GET api/values
+        // GET api/Users
         [HttpGet]
         public async Task<IEnumerable<ApiUser>> Get()
         {
@@ -38,7 +38,7 @@ namespace Blissmo.API.Controllers
             }).ToArray();
         }
 
-        // GET api/values/5
+        // GET api/Users/5
         [HttpGet("{id}")]
         [Route("{id:guid}")]
         public async Task<ApiUser> Get(Guid id)
@@ -53,8 +53,8 @@ namespace Blissmo.API.Controllers
                 Phone = user.Phone
             };
         }
-        
-        // POST api/Post
+
+        // POST api/Users
         [HttpPost]
         public async Task Post([FromBody]ApiUser user)
         {

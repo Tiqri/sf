@@ -23,28 +23,21 @@ namespace Blissmo.API.Controllers
         private static IChatService _chatserviceActor = ActorProxy.Create<IChatService>(_actorId, _serviceUri);
 
         public ChatController()
-        {
-            
+        {            
         }
 
-        // POST api/Post [FromBody] ApiMessage message
+        // POST api/Chat [FromBody] ApiMessage message
         [HttpPost]
         public async Task Post()
         {
             await _chatserviceActor.SetCountAsync(1, CancellationToken.None);
         }
 
+        // GET api/Chat
         [HttpGet]
         public async Task Get()
         {
-            try
-            {
-                await _chatserviceActor.SubscribeAsync<IChatEvents>(new ChatEventsHandler());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            await _chatserviceActor.SubscribeAsync<IChatEvents>(new ChatEventsHandler());
         }
     }
 }

@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Blissmo.API.Model;
-using Blissmo.UserService.Interface;
-using Blissmo.UserService.Interface.Model;
+using Blissmo.RecommendMoviesActor.Interfaces;
+using Blissmo.UserService.Interfaces;
+using Blissmo.UserService.Interfaces.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.ServiceFabric.Actors;
+using Microsoft.ServiceFabric.Actors.Client;
 using Microsoft.ServiceFabric.Services.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 
@@ -13,6 +17,7 @@ namespace Blissmo.API.Controllers
     public class AuthorizeController : Controller
     {
         private readonly IUserService _userService;
+        private static Uri _recommandMoviesServiceUri = new Uri("fabric:/Blissmo/RecommendMoviesActorService");
 
         public AuthorizeController()
         {
@@ -31,13 +36,33 @@ namespace Blissmo.API.Controllers
                 Password = user.Password
             });
 
-            return loggedUser != null ? new ApiUser
+            if (loggedUser != null)
             {
-                Name = loggedUser.Name,
-                Address = loggedUser.Address,
-                Phone = loggedUser.Phone,
-                DOB = loggedUser.DOB
-            } : null;
+                try
+                {
+                    //Invoke recommand movie actor for loggedin user
+                    var recommandMoviesActor =
+                           ActorProxy.Create<IRecommendMoviesActor>(new ActorId(loggedUser.Id), _recommandMoviesServiceUri);
+                    await recommandMoviesActor.SetUserMovies(CancellationToken.None);
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+             
+
+                return new ApiUser
+                {
+                    Id = loggedUser.Id,
+                    Name = loggedUser.Name,
+                    Address = loggedUser.Address,
+                    Phone = loggedUser.Phone,
+                    DOB = loggedUser.DOB
+                };
+            }
+
+            return null;
         }
     }
 }

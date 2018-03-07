@@ -4,9 +4,9 @@ using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using Blissmo.BookingServiceActor.Interfaces;
 using Blissmo.BookingServiceActor.Interfaces.Model;
-using Blissmo.Helper.MessageBrokerProvider;
+using Blissmo.Helpers.MessageBrokerProvider;
 using System.Configuration;
-using Blissmo.Helper.KeyVault;
+using Blissmo.Helpers.KeyVault;
 using System;
 
 namespace Blissmo.BookingServiceActor
@@ -48,7 +48,7 @@ namespace Blissmo.BookingServiceActor
             this._bookingMessageBroker = new RabbitMQ(); // new ServiceBusMessageBroker();
             this._bookingRepository = new BookingRepository(this.StateManager);
 
-            return base.OnActivateAsync(); //this.StateManager.TryAddStateAsync("count", 0);
+            return base.OnActivateAsync();
         }
 
         /// <summary>
@@ -58,9 +58,8 @@ namespace Blissmo.BookingServiceActor
         /// </summary>
         /// <param name="booking">booking object</param>
         /// <returns></returns>
-        async Task IBookingServiceActor.AddBooking(Booking booking, CancellationToken cancellationToken)
+        public async Task AddBooking(Booking booking, CancellationToken cancellationToken)
         {
-            //var connection = new BrokerConnection { EndPoint = _endPoint, QueueName = _queueName };
             var connection = new BrokerConnection
             {
                 EndPoint = KeyVault.GetValue("RABBITMQ_ENDPOINT"),
