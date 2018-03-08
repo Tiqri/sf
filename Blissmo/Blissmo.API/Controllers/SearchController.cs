@@ -22,7 +22,7 @@ namespace Blissmo.API.Controllers
     public class SearchController : Controller
     {
         private readonly ILogger _logger;
-        private readonly Uri _searchServiceUri = new Uri("fabric:/Blissmo/Blissmo.SearchService");
+        private readonly Uri _searchServiceUri = new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/Blissmo.SearchService");
         private readonly ServicePartitionResolver _servicePartitionResolver = ServicePartitionResolver.GetDefault();
 
         public SearchController()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Fabric;
 using System.Linq;
 using System.Threading.Tasks;
 using Blissmo.API.Model;
@@ -19,7 +20,7 @@ namespace Blissmo.API.Controllers
         public UsersController()
         {
             _userService = ServiceProxy.Create<IUserService>(
-                new Uri("fabric:/Blissmo/Blissmo.UserService"),
+                new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/Blissmo.UserService"),
                 new ServicePartitionKey(0));
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
 using Blissmo.API.Model;
@@ -17,12 +18,12 @@ namespace Blissmo.API.Controllers
     public class AuthorizeController : Controller
     {
         private readonly IUserService _userService;
-        private static Uri _recommandMoviesServiceUri = new Uri("fabric:/Blissmo/RecommendMoviesActorService");
+        private static Uri _recommandMoviesServiceUri = new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/RecommendMoviesActorService");
 
         public AuthorizeController()
         {
             _userService = ServiceProxy.Create<IUserService>(
-                new Uri("fabric:/Blissmo/Blissmo.UserService"),
+                new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/Blissmo.UserService"),
                 new ServicePartitionKey(0));
         }
 

@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace Blissmo.SearchService
 {
-    [EventSource(Name = "MyCompany-Blissmo-Blissmo.SearchService")]
+    [EventSource(Name = "Blissmo.SearchService")]
     internal sealed class ServiceEventSource : EventSource
     {
         public static readonly ServiceEventSource Current = new ServiceEventSource();

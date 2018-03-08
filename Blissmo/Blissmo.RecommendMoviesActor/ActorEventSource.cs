@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace Blissmo.RecommendMoviesActor
 {
-    [EventSource(Name = "MyCompany-Blissmo-Blissmo.RecommendMoviesActor")]
+    [EventSource(Name = "Blissmo.RecommendMoviesActor")]
     internal sealed class ActorEventSource : EventSource
     {
         public static readonly ActorEventSource Current = new ActorEventSource();

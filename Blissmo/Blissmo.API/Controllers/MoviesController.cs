@@ -5,6 +5,7 @@ using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Client;
 using System;
 using System.Collections.Generic;
+using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace Blissmo.API.Controllers
     public class MoviesController : Controller
     {
         private IRecommendMoviesActor _recommendMoviesActor;
-        private static Uri _recommandMoviesServiceUri = new Uri("fabric:/Blissmo/RecommendMoviesActorService");
+        private static Uri _recommandMoviesServiceUri = new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/RecommendMoviesActorService");
 
         // POST api/Booking
         public async Task<IEnumerable<Movie>> GetRecommandMovies(Guid userId)

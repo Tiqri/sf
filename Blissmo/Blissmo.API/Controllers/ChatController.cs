@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Fabric;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Blissmo.API.Controllers
     [Route("api/Chat")]
     public class ChatController : Controller
     {
-        private static Uri _serviceUri = new Uri("fabric:/Blissmo/ChatServiceActorService");
+        private static Uri _serviceUri = new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/ChatServiceActorService");
         private static ActorId _actorId = ActorId.CreateRandom();
         private static IChatService _chatserviceActor = ActorProxy.Create<IChatService>(_actorId, _serviceUri);
 

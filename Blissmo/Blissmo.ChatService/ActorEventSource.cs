@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace Blissmo.ChatService
 {
-    [EventSource(Name = "MyCompany-Blissmo-Blissmo.ChatService")]
+    [EventSource(Name = "Blissmo.ChatService")]
     internal sealed class ActorEventSource : EventSource
     {
         public static readonly ActorEventSource Current = new ActorEventSource();

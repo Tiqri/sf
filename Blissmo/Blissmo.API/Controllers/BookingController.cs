@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -15,7 +16,7 @@ namespace Blissmo.API.Controllers
     [Route("api/Booking")]
     public class BookingController : Controller
     {
-        private static Uri _serviceUri = new Uri("fabric:/Blissmo/BookingServiceActorService");
+        private static Uri _serviceUri = new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/BookingServiceActorService");
 
         private IBookingServiceActor GetBookingServiceActor(ref Guid bookingId)
         {
