@@ -25,7 +25,7 @@ namespace Blissmo.API.Handlers
             {
                 EndPoint = KeyVault.GetValue("RABBITMQ_ENDPOINT"),
                 Port = Convert.ToInt32(KeyVault.GetValue("RABBITMQ_PORT")),
-                QueueName = KeyVault.GetValue("RESERVATION_RESPONSE_QUEUE_NAME"),
+                QueueName = KeyVault.GetValue("RESERVATION_RESPONSE_QUEUENAME"),
                 UserName = "user",
                 Password = "eXile1234567"
             };

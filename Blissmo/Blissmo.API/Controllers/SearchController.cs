@@ -21,13 +21,11 @@ namespace Blissmo.API.Controllers
     [Route("api/Search")]
     public class SearchController : Controller
     {
-        private readonly ILogger _logger;
         private readonly Uri _searchServiceUri = new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/Blissmo.SearchService");
         private readonly ServicePartitionResolver _servicePartitionResolver = ServicePartitionResolver.GetDefault();
 
         public SearchController()
         {
-            _logger = new LoggerFactory().CreateLogger<EventSource>();
         }
 
         // GET api/Search

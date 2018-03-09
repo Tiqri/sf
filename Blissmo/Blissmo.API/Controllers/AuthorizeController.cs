@@ -7,6 +7,7 @@ using Blissmo.RecommendMoviesActor.Interfaces;
 using Blissmo.UserService.Interfaces;
 using Blissmo.UserService.Interfaces.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Client;
 using Microsoft.ServiceFabric.Services.Client;

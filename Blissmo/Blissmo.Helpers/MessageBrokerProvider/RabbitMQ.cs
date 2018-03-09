@@ -44,7 +44,7 @@ namespace Blissmo.Helpers.MessageBrokerProvider
 
             _channel.BasicConsume(
                 queue: connection.QueueName,
-                autoAck: false,
+                autoAck: true,
                 consumer: consumer
             );
         }

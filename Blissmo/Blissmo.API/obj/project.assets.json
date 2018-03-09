@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.6.1": {
+    ".NETFramework,Version=v4.6.2": {
       "AutoMapper/6.2.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1476,31 +1476,31 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Internal.Strings.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Internal.Strings.dll": {
             "assetType": "runtime",
             "rid": "win"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Internal.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Internal.dll": {
             "assetType": "runtime",
             "rid": "win"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Preview.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Preview.dll": {
             "assetType": "runtime",
             "rid": "win"
           },
-          "runtimes/win/lib/net461/System.Fabric.Management.ServiceModel.XmlSerializers.dll": {
+          "runtimes/win/lib/net462/System.Fabric.Management.ServiceModel.XmlSerializers.dll": {
             "assetType": "runtime",
             "rid": "win"
           },
-          "runtimes/win/lib/net461/System.Fabric.Management.ServiceModel.dll": {
+          "runtimes/win/lib/net462/System.Fabric.Management.ServiceModel.dll": {
             "assetType": "runtime",
             "rid": "win"
           },
-          "runtimes/win/lib/net461/System.Fabric.Strings.dll": {
+          "runtimes/win/lib/net462/System.Fabric.Strings.dll": {
             "assetType": "runtime",
             "rid": "win"
           },
-          "runtimes/win/lib/net461/System.Fabric.dll": {
+          "runtimes/win/lib/net462/System.Fabric.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1526,7 +1526,7 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Actors.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Actors.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1555,7 +1555,7 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.AspNetCore.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.AspNetCore.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1578,7 +1578,7 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.AspNetCore.Kestrel.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.AspNetCore.Kestrel.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1609,11 +1609,11 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Data.Interfaces.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Data.Interfaces.dll": {
             "assetType": "runtime",
             "rid": "win"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Data.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Data.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1639,7 +1639,7 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Diagnostics.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Diagnostics.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1691,11 +1691,11 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.FabricTransport.V2.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.FabricTransport.V2.dll": {
             "assetType": "runtime",
             "rid": "win"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.FabricTransport.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.FabricTransport.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1718,7 +1718,7 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Services.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Services.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1742,7 +1742,7 @@
             "assetType": "runtime",
             "rid": "linux"
           },
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Services.Remoting.dll": {
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Services.Remoting.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -2359,11 +2359,14 @@
       },
       "System.Reflection/4.3.0": {
         "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
         "compile": {
-          "ref/net45/_._": {}
+          "ref/net462/System.Reflection.dll": {}
         },
         "runtime": {
-          "lib/net45/_._": {}
+          "lib/net462/System.Reflection.dll": {}
         }
       },
       "System.Reflection.Extensions/4.0.1": {
@@ -2401,13 +2404,14 @@
         "frameworkAssemblies": [
           "System",
           "System.ComponentModel.Composition",
-          "System.Core"
+          "System.Core",
+          "mscorlib"
         ],
         "compile": {
-          "ref/net45/_._": {}
+          "ref/net462/System.Runtime.dll": {}
         },
         "runtime": {
-          "lib/net45/_._": {}
+          "lib/net462/System.Runtime.dll": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/4.4.0": {
@@ -2422,26 +2426,31 @@
       "System.Runtime.Extensions/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
-          "System"
+          "System",
+          "mscorlib"
         ],
         "compile": {
-          "ref/net45/_._": {}
+          "ref/net462/System.Runtime.Extensions.dll": {}
         },
         "runtime": {
-          "lib/net45/_._": {}
+          "lib/net462/System.Runtime.Extensions.dll": {}
         }
       },
       "System.Runtime.InteropServices/4.3.0": {
         "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        },
         "frameworkAssemblies": [
           "System",
-          "System.Core"
+          "System.Core",
+          "mscorlib"
         ],
         "compile": {
-          "ref/net45/_._": {}
+          "ref/net462/System.Runtime.InteropServices.dll": {}
         },
         "runtime": {
-          "lib/net45/_._": {}
+          "lib/net462/System.Runtime.InteropServices.dll": {}
         }
       },
       "System.Runtime.Numerics/4.3.0": {
@@ -2840,7 +2849,7 @@
         }
       }
     },
-    ".NETFramework,Version=v4.6.1/win7-x64": {
+    ".NETFramework,Version=v4.6.2/win7-x64": {
       "AutoMapper/6.2.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -4231,13 +4240,13 @@
           "ref/netstandard2.0/System.Fabric.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Internal.Strings.dll": {},
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Internal.dll": {},
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Preview.dll": {},
-          "runtimes/win/lib/net461/System.Fabric.Management.ServiceModel.XmlSerializers.dll": {},
-          "runtimes/win/lib/net461/System.Fabric.Management.ServiceModel.dll": {},
-          "runtimes/win/lib/net461/System.Fabric.Strings.dll": {},
-          "runtimes/win/lib/net461/System.Fabric.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Internal.Strings.dll": {},
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Internal.dll": {},
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Preview.dll": {},
+          "runtimes/win/lib/net462/System.Fabric.Management.ServiceModel.XmlSerializers.dll": {},
+          "runtimes/win/lib/net462/System.Fabric.Management.ServiceModel.dll": {},
+          "runtimes/win/lib/net462/System.Fabric.Strings.dll": {},
+          "runtimes/win/lib/net462/System.Fabric.dll": {}
         }
       },
       "Microsoft.ServiceFabric.Actors/3.0.456": {
@@ -4250,7 +4259,7 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.Actors.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Actors.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Actors.dll": {}
         },
         "build": {
           "build/net45/Microsoft.ServiceFabric.Actors.targets": {}
@@ -4272,7 +4281,7 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.AspNetCore.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.AspNetCore.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.AspNetCore.dll": {}
         }
       },
       "Microsoft.ServiceFabric.AspNetCore.Kestrel/3.0.456": {
@@ -4285,7 +4294,7 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.AspNetCore.Kestrel.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.AspNetCore.Kestrel.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.AspNetCore.Kestrel.dll": {}
         }
       },
       "Microsoft.ServiceFabric.Data/3.0.456": {
@@ -4301,8 +4310,8 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.Data.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Data.Interfaces.dll": {},
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Data.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Data.Interfaces.dll": {},
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Data.dll": {}
         }
       },
       "Microsoft.ServiceFabric.Diagnostics.Internal/3.0.456": {
@@ -4318,7 +4327,7 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.Diagnostics.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Diagnostics.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Diagnostics.dll": {}
         }
       },
       "Microsoft.ServiceFabric.FabricTransport.Internal/3.0.456": {
@@ -4335,8 +4344,8 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.FabricTransport.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.FabricTransport.V2.dll": {},
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.FabricTransport.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.FabricTransport.V2.dll": {},
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.FabricTransport.dll": {}
         }
       },
       "Microsoft.ServiceFabric.Services/3.0.456": {
@@ -4349,7 +4358,7 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.Services.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Services.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Services.dll": {}
         }
       },
       "Microsoft.ServiceFabric.Services.Remoting/3.0.456": {
@@ -4363,7 +4372,7 @@
           "ref/netstandard2.0/Microsoft.ServiceFabric.Services.Remoting.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/Microsoft.ServiceFabric.Services.Remoting.dll": {}
+          "runtimes/win/lib/net462/Microsoft.ServiceFabric.Services.Remoting.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
@@ -4923,11 +4932,14 @@
       },
       "System.Reflection/4.3.0": {
         "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
         "compile": {
-          "ref/net45/_._": {}
+          "ref/net462/System.Reflection.dll": {}
         },
         "runtime": {
-          "lib/net45/_._": {}
+          "lib/net462/System.Reflection.dll": {}
         }
       },
       "System.Reflection.Extensions/4.0.1": {
@@ -4965,13 +4977,14 @@
         "frameworkAssemblies": [
           "System",
           "System.ComponentModel.Composition",
-          "System.Core"
+          "System.Core",
+          "mscorlib"
         ],
         "compile": {
-          "ref/net45/_._": {}
+          "ref/net462/System.Runtime.dll": {}
         },
         "runtime": {
-          "lib/net45/_._": {}
+          "lib/net462/System.Runtime.dll": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/4.4.0": {
@@ -4986,26 +4999,31 @@
       "System.Runtime.Extensions/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
-          "System"
+          "System",
+          "mscorlib"
         ],
         "compile": {
-          "ref/net45/_._": {}
+          "ref/net462/System.Runtime.Extensions.dll": {}
         },
         "runtime": {
-          "lib/net45/_._": {}
+          "lib/net462/System.Runtime.Extensions.dll": {}
         }
       },
       "System.Runtime.InteropServices/4.3.0": {
         "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        },
         "frameworkAssemblies": [
           "System",
-          "System.Core"
+          "System.Core",
+          "mscorlib"
         ],
         "compile": {
-          "ref/net45/_._": {}
+          "ref/net462/System.Runtime.InteropServices.dll": {}
         },
         "runtime": {
-          "lib/net45/_._": {}
+          "lib/net462/System.Runtime.InteropServices.dll": {}
         }
       },
       "System.Runtime.Numerics/4.3.0": {
@@ -10037,7 +10055,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.6.1": [
+    ".NETFramework,Version=v4.6.2": [
       "AutoMapper >= 6.2.2",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 3.2.0",
       "Blissmo.BookingServiceActor.Interfaces >= 1.0.0",
@@ -10086,7 +10104,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
       ],
       "originalTargetFrameworks": [
-        "net461"
+        "net462"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -10094,7 +10112,7 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net461": {
+        "net462": {
           "projectReferences": {
             "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.SearchService.Interfaces\\Blissmo.SearchService.Interfaces.csproj": {
               "projectPath": "D:\\Tiqri\\Repo\\sf2\\Blissmo\\Blissmo.SearchService.Interfaces\\Blissmo.SearchService.Interfaces.csproj"
@@ -10124,7 +10142,7 @@
       }
     },
     "frameworks": {
-      "net461": {
+      "net462": {
         "dependencies": {
           "AutoMapper": {
             "target": "Package",

@@ -1,8 +1,9 @@
-﻿using Microsoft.ServiceFabric.Services.Runtime;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.ServiceFabric.Services.Runtime;
 using System;
 using System.Diagnostics;
+using System.Fabric;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Blissmo.API
 {
@@ -20,8 +21,7 @@ namespace Blissmo.API
                 // When Service Fabric creates an instance of this service type,
                 // an instance of the class is created in this host process.
 
-                ServiceRuntime.RegisterServiceAsync("Blissmo.APIType",
-                    context => new API(context)).GetAwaiter().GetResult();
+                ServiceRuntime.RegisterServiceAsync("Blissmo.APIType", context => new API(context)).GetAwaiter().GetResult();
 
                 ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(API).Name);
 

@@ -17,30 +17,100 @@
     <Parameter Name="RecommendMoviesActorService_PartitionCount" DefaultValue="10" />
     <Parameter Name="RecommendMoviesActorService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="RecommendMoviesActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="SearchServiceName" DefaultValue="blissmo" />
+    <Parameter Name="SearchServiceKey" DefaultValue="A5EEFE72F7876E2DEF92259280423BB2" />
+    <Parameter Name="SendGridApiKey" DefaultValue="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" />
+    <Parameter Name="AzureServiceBusEndpoint" DefaultValue="Endpoint=sb://blissmo.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=BT1A0IXPd6goWbJ4PSidrtMMIQXcKNh4TYJAJcVf364=" />
+    <Parameter Name="ReservationQueueName" DefaultValue="reservationqueue" />
+    <Parameter Name="ReservationResponseQueueName" DefaultValue="reservationresponse" />
+    <Parameter Name="RabbitMQEndpoint" DefaultValue="52.179.96.170" />
+    <Parameter Name="RabbitMQPort" DefaultValue="5672" />
+    <Parameter Name="ApplicationInsightsKey" DefaultValue="rj36cmm0nc2ftxik02a8gk8hblhuz7vhjymxz04z" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.RecommendMoviesActorPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="ConfigurationSection">
+            <Parameter Name="ApplicationInsightsKey" Value="[ApplicationInsightsKey]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.BookingServiceActorPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="ConfigurationSection">
+            <Parameter Name="AzureServiceBusEndpoint" Value="[AzureServiceBusEndpoint]" />
+            <Parameter Name="ReservationQueueName" Value="[ReservationQueueName]" />
+            <Parameter Name="RabbitMQEndpoint" Value="[RabbitMQEndpoint]" />
+            <Parameter Name="RabbitMQPort" Value="[RabbitMQPort]" />
+            <Parameter Name="ApplicationInsightsKey" Value="[ApplicationInsightsKey]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.ChatServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="ConfigurationSection">
+            <Parameter Name="ApplicationInsightsKey" Value="[ApplicationInsightsKey]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.SearchServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="ConfigurationSection">
+            <Parameter Name="SearchServiceName" Value="[SearchServiceName]" />
+            <Parameter Name="SearchServiceKey" Value="[SearchServiceKey]" />
+            <Parameter Name="ApplicationInsightsKey" Value="[ApplicationInsightsKey]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.APIPkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="ConfigurationSection">
+            <Parameter Name="SendGridApiKey" Value="[SendGridApiKey]" />
+            <Parameter Name="ReservationResponseQueueName" Value="[ReservationResponseQueueName]" />
+            <Parameter Name="RabbitMQEndpoint" Value="[RabbitMQEndpoint]" />
+            <Parameter Name="RabbitMQPort" Value="[RabbitMQPort]" />
+            <Parameter Name="ApplicationInsightsKey" Value="[ApplicationInsightsKey]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Blissmo.UserServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="ConfigurationSection">
+            <Parameter Name="ApplicationInsightsKey" Value="[ApplicationInsightsKey]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

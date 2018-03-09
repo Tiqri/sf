@@ -25,8 +25,8 @@ namespace Blissmo.SearchService
     internal sealed class SearchService : StatefulService, ISearchService
     {
         private ISearchProvider _searchProvider;
-        private string _searchServiceName = KeyVault.GetValue("SearchServiceName");
-        private string _adminApiKey = KeyVault.GetValue("SearchServiceKey");
+        private string _searchServiceName =  KeyVault.GetValue("SEARCH_SERVICE_NAME");
+        private string _adminApiKey = KeyVault.GetValue("SEARCH_SERVICE_KEY");
         private string _indexName = "movie-index";
 
         public SearchService(StatefulServiceContext context)

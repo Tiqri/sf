@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Blissmo.API
 {
@@ -14,13 +15,6 @@ namespace Blissmo.API
     {
         public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
-            //var builder = new ConfigurationBuilder()
-            //        .SetBasePath(env.ContentRootPath)
-            //        .AddInMemoryCollection()
-            //        .AddJsonFile("appsettings.json", false, true);
-
-            //Configuration = builder.Build();
-
             Configuration = configuration;
         }
 

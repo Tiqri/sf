@@ -11,7 +11,7 @@ namespace Blissmo.Helpers.MailProvider
     {
         public async Task SendEmailAsync(Email mail)
         {
-            var apiKey = KeyVault.KeyVault.GetValue("SendGridApiKey");
+            var apiKey = KeyVault.KeyVault.GetValue("SENDGRID_API_KEY");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("system@blissmo.com", "Blissmo Platform");
             var toList = new List<EmailAddress>();
