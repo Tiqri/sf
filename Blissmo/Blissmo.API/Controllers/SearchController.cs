@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Blissmo.API.Model;
+using Blissmo.Helpers.RemotingSerializationProvider;
 using Blissmo.SearchService.Interfaces;
 using Blissmo.SearchService.Interfaces.Model;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.ServiceFabric.Services.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
+using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client;
 
 namespace Blissmo.API.Controllers
 {
@@ -32,31 +34,36 @@ namespace Blissmo.API.Controllers
         [HttpGet]
         public async Task<IEnumerable<ApiMovie>> Get(string text)
         {
-            try
-            {
-                var partitionKey = await GetSearchPartitionKeyAsync(text);
-                var _searchService = ServiceProxy.Create<ISearchService>(
-                    _searchServiceUri,
-                    partitionKey);
+            var partitionKey = await GetSearchPartitionKeyAsync(text);
+            //var _searchService = ServiceProxy.Create<ISearchService>(
+            //    _searchServiceUri,
+            //    partitionKey);
 
-                var results = await _searchService.SearchMovies(new SearchParameters
-                {
-                    Select = new[] { "tmsId", "title", "longDescription" },
-                    SearchTerm = text
-                });
-
-                return results?.Select(i => new ApiMovie()
-                    {
-                        Id = i.tmsId,
-                        Title = i.title,
-                        LongDescription = i.longDescription,
-                        ShortDescription = i.shortDescription
-                    });
-            }
-            catch (Exception ex)
+            /* Remoting V2 does not support for complex type defaultly
+               Here overwriten serialize provider as json serialization to deserialize the response */
+            var proxyFactory = new ServiceProxyFactory((c) =>
             {
-                throw ex;
-            }
+                return new FabricTransportServiceRemotingClientFactory(
+                    serializationProvider: new ServiceRemotingJsonSerializationProvider());
+            });
+
+            var _searchService = proxyFactory.CreateServiceProxy<ISearchService>(
+                _searchServiceUri,
+                partitionKey);
+
+            var results = await _searchService.SearchMovies(new SearchParameters
+            {
+                Select = new[] { "tmsId", "title", "longDescription" },
+                SearchTerm = text
+            });
+
+            return results?.Select(i => new ApiMovie()
+            {
+                Id = i.tmsId,
+                Title = i.title,
+                LongDescription = i.longDescription,
+                ShortDescription = i.shortDescription
+            });
         }
 
         private async Task<ServicePartitionKey> GetSearchPartitionKeyAsync(string searchTerm)

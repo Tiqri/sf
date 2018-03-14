@@ -16,6 +16,8 @@ using Blissmo.SearchService.SearchProvider;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Data;
 using Blissmo.Helpers.QueryHelper;
+using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime;
+using Blissmo.Helpers.RemotingSerializationProvider;
 
 namespace Blissmo.SearchService
 {
@@ -25,7 +27,7 @@ namespace Blissmo.SearchService
     internal sealed class SearchService : StatefulService, ISearchService
     {
         private ISearchProvider _searchProvider;
-        private string _searchServiceName =  KeyVault.GetValue("SEARCH_SERVICE_NAME");
+        private string _searchServiceName = KeyVault.GetValue("SEARCH_SERVICE_NAME");
         private string _adminApiKey = KeyVault.GetValue("SEARCH_SERVICE_KEY");
         private string _indexName = "movie-index";
 
@@ -42,9 +44,15 @@ namespace Blissmo.SearchService
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
+            /*  Remoting V2 does not support for complex type defaultly
+                Here overwriten serialize provider as json serialization to serialize the object */
             return new[]
             {
-                new ServiceReplicaListener(context => this.CreateServiceRemotingListener(context))
+                new ServiceReplicaListener((context) =>
+                {
+                    return new FabricTransportServiceRemotingListener(context, this, null,
+                        new ServiceRemotingJsonSerializationProvider());
+                })
             };
         }
 
@@ -99,7 +107,7 @@ namespace Blissmo.SearchService
 
                 StoreSeachCache(searchParameters.SearchTerm, resultSet);
             }
-            
+
             return resultSet;
         }
 
