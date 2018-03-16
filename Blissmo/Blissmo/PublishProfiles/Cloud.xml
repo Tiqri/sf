@@ -23,7 +23,7 @@
   <ClusterConnectionParameters ConnectionEndpoint="blissmo.eastus.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="F1C637861301744CC4E385BF472C3E54145CE6C5" FindType="FindByThumbprint" FindValue="F1C637861301744CC4E385BF472C3E54145CE6C5" StoreLocation="LocalMachine" StoreName="My" />
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
   <CopyPackageParameters CompressPackage="true" />
-  <UpgradeDeployment Mode="Monitored" Enabled="false">
+  <UpgradeDeployment Mode="Monitored" Enabled="true">
     <Parameters FailureAction="Rollback" Force="True" />
   </UpgradeDeployment>
 </PublishProfile>
