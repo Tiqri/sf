@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Fabric;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Blissmo.UserService.Interface;
-using Blissmo.UserService.Interface.Model;
-using Microsoft.ServiceFabric.Data.Collections;
+using Blissmo.Helpers.Encryption;
+using Blissmo.UserService.Interfaces;
+using Blissmo.UserService.Interfaces.Model;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
@@ -24,9 +23,19 @@ namespace Blissmo.UserService
             : base(context)
         { }
 
-        public async Task AddUser(User user)
+        public async Task AddUser(Login user)
         {
             await _repo.AddUser(user);
+        }
+
+        public async Task<User> Authorize(Login login)
+        {
+            var user = await _repo.GetLoginUserAsync(login);
+            PasswordHash hash = new PasswordHash(Convert.FromBase64String(user.Password));
+            if (!hash.Verify(login.Password))
+                throw new System.UnauthorizedAccessException();
+
+            return user.User;            
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()
@@ -63,25 +72,39 @@ namespace Blissmo.UserService
         {
             _repo = new ServiceFabricUserRepository(this.StateManager);
 
-            var user1 = new User
-            {
-                Id = Guid.NewGuid(),
-                Name = "Mark1",
-                Address = "ABC"
+            var user1 = new Login {
+                UserName = "mark",
+                Password = Login.SetPasswordHash("1234"),
+                User = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Mark",
+                    Address = "ABC"
+                }
             };
 
-            var user2 = new User
+            var user2 = new Login
             {
-                Id = Guid.NewGuid(),
-                Name = "Mark2",
-                Address = "ABC"
+                UserName = "jhon",
+                Password = Login.SetPasswordHash("1234"),
+                User = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Jhon",
+                    Address = "ABC"
+                }
             };
 
-            var user3 = new User
+            var user3 = new Login
             {
-                Id = Guid.NewGuid(),
-                Name = "Mark3",
-                Address = "ABC"
+                UserName = "abc",
+                Password = Login.SetPasswordHash("1234"),
+                User = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Abc",
+                    Address = "ABC"
+                }
             };
 
             await _repo.AddUser(user1);

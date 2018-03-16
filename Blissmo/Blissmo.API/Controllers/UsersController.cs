@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Fabric;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using Blissmo.API.Model;
-using Blissmo.UserService.Interface;
-using Blissmo.UserService.Interface.Model;
+using Blissmo.UserService.Interfaces;
+using Blissmo.UserService.Interfaces.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.ServiceFabric.Services.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 
@@ -18,12 +22,12 @@ namespace Blissmo.API.Controllers
 
         public UsersController()
         {
-            _userService = ServiceProxy.Create<IUserService>(
-                new Uri("fabric:/Blissmo/Blissmo.UserService"),
+            this._userService = ServiceProxy.Create<IUserService>(
+                new Uri($"{ FabricRuntime.GetActivationContext().ApplicationName }/Blissmo.UserService"),
                 new ServicePartitionKey(0));
         }
 
-        // GET api/values
+        // GET api/Users
         [HttpGet]
         public async Task<IEnumerable<ApiUser>> Get()
         {
@@ -38,7 +42,7 @@ namespace Blissmo.API.Controllers
             }).ToArray();
         }
 
-        // GET api/values/5
+        // GET api/Users/5
         [HttpGet("{id}")]
         [Route("{id:guid}")]
         public async Task<ApiUser> Get(Guid id)
@@ -54,17 +58,22 @@ namespace Blissmo.API.Controllers
             };
         }
 
-        // POST api/values
+        // POST api/Users
         [HttpPost]
         public async Task Post([FromBody]ApiUser user)
         {
-            var newUser = new User()
+            var newUser = new Login()
             {
-                Id = Guid.NewGuid(),
-                Name = user.Name,
-                Address = user.Address,
-                DOB = user.DOB,
-                Phone = user.Phone
+                UserName = user.UserName,
+                Password = Login.SetPasswordHash(user.Password),
+                User = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Name = user.Name,
+                    Address = user.Address,
+                    DOB = user.DOB,
+                    Phone = user.Phone
+                }
             };
 
             await _userService.AddUser(newUser);

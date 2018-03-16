@@ -1,0 +1,25 @@
+﻿{
+  "inputs": [
+    {
+      "type": "EventSource",
+      "sources": [
+        { "providerName": "Your-Service-EventSource" }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "type": "drop",
+      "include": "Level == Verbose"
+    }
+  ],
+  "outputs": [
+    // Please update the instrumentationKey.
+    {
+      "type": "ApplicationInsights",
+      "instrumentationKey": "rj36cmm0nc2ftxik02a8gk8hblhuz7vhjymxz04z"
+    }
+  ],
+  "schemaVersion": "2018-03-09",
+  "extensions": []
+}

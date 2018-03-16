@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Blissmo.UserService.Interface.Model;
+using Blissmo.Helpers.QueryHelper;
+using Blissmo.UserService.Interfaces.Model;
 using Microsoft.ServiceFabric.Data;
 using Microsoft.ServiceFabric.Data.Collections;
 
@@ -19,32 +20,32 @@ namespace Blissmo.UserService
             _stateManager = stateManager;
         }
 
-        public async Task AddUser(User user)
+        public async Task AddUser(Login user)
         {
-            var users = await _stateManager.GetOrAddAsync<IReliableDictionary<Guid, User>>("users");
+            var users = await _stateManager.GetOrAddAsync<IReliableDictionary<Guid, Login>>("users");
 
             using (var tx = _stateManager.CreateTransaction())
             {
-                await users.AddOrUpdateAsync(tx, user.Id, user, (id, value) => user);
+                await users.AddOrUpdateAsync(tx, user.User.Id, user, (id, value) => user);
                 await tx.CommitAsync();
             }
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()
         {
-            var users = await _stateManager.GetOrAddAsync<IReliableDictionary<Guid, User>>("users");
+            var users = await _stateManager.GetOrAddAsync<IReliableDictionary<Guid, Login>>("users");
             var result = new List<User>();
 
             using (var tx = _stateManager.CreateTransaction())
             {
-                var allProducts = await users.CreateEnumerableAsync(tx, EnumerationMode.Unordered);
+                var allUsers = await users.CreateEnumerableAsync(tx, EnumerationMode.Unordered);
 
-                using (var enumerator = allProducts.GetAsyncEnumerator())
+                using (var enumerator = allUsers.GetAsyncEnumerator())
                 {
                     while (await enumerator.MoveNextAsync(CancellationToken.None))
                     {
-                        KeyValuePair<Guid, User> current = enumerator.Current;
-                        result.Add(current.Value);
+                        KeyValuePair<Guid, Login> current = enumerator.Current;
+                        result.Add(current.Value.User);
                     }
                 }
             }
@@ -52,15 +53,24 @@ namespace Blissmo.UserService
             return result;
         }
 
+        public async Task<Login> GetLoginUserAsync(Login login)
+        {
+            var queryResult = await QueryReliableDictionaryHelper
+                .QueryReliableDictionary<Login>(_stateManager, "users", loginState =>
+                    login.UserName == loginState.UserName);
+
+            return queryResult != null && queryResult.Any() ? queryResult.FirstOrDefault().Value : null;
+        }
+
         public async Task<User> GetUser(Guid userId)
         {
-            var users = await _stateManager.GetOrAddAsync<IReliableDictionary<Guid, User>>("users");
+            var users = await _stateManager.GetOrAddAsync<IReliableDictionary<Guid, Login>>("users");
 
             using (var tx = _stateManager.CreateTransaction())
             {
-                ConditionalValue<User> user = await users.TryGetValueAsync(tx, userId);
+                ConditionalValue<Login> user = await users.TryGetValueAsync(tx, userId);
 
-                return user.HasValue ? user.Value : null;
+                return user.HasValue ? user.Value.User : null;
             }
         }
     }

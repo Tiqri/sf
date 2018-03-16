@@ -11,6 +11,12 @@ namespace Blissmo.API.Model
         [JsonProperty("id")]
         public Guid Id { get; set; }
 
+        [JsonProperty("userName")]
+        public string UserName { get; set; }
+
+        [JsonProperty("password")]
+        public string Password { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
