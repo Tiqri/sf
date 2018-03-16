@@ -14,9 +14,9 @@
     <Parameter Name="BookingServiceActorService_PartitionCount" DefaultValue="1" />
     <Parameter Name="BookingServiceActorService_MinReplicaSetSize" DefaultValue="1" />
     <Parameter Name="BookingServiceActorService_TargetReplicaSetSize" DefaultValue="1" />
-    <Parameter Name="RecommendMoviesActorService_PartitionCount" DefaultValue="10" />
-    <Parameter Name="RecommendMoviesActorService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="RecommendMoviesActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="RecommendMoviesActorService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="RecommendMoviesActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="RecommendMoviesActorService_TargetReplicaSetSize" DefaultValue="1" />
     <Parameter Name="SearchServiceName" DefaultValue="" />
     <Parameter Name="SearchServiceKey" DefaultValue="" />
     <Parameter Name="SendGridApiKey" DefaultValue="" />

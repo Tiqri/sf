@@ -46,7 +46,10 @@ namespace Blissmo.RecommendMoviesActor
 
         private List<Movie> GetMovieList()
         {
-            using (FileStream s = File.Open(@"D:\movies.json", FileMode.Open))
+            var dataPackage = this.ActorService.Context.CodePackageActivationContext.GetDataPackageObject("Data");
+            var moviesJsonPath = Path.Combine(dataPackage.Path, "movies.json");
+
+            using (FileStream s = File.Open(moviesJsonPath, FileMode.Open))
             using (StreamReader file = new StreamReader(s))
             {
                 return JsonConvert.DeserializeObject<List<Movie>>(file.ReadToEnd());
