@@ -65,8 +65,8 @@ namespace Blissmo.BookingServiceActor
                 EndPoint = KeyVault.GetValue("RABBITMQ_ENDPOINT"),
                 Port = Convert.ToInt32(KeyVault.GetValue("RABBITMQ_PORT")),
                 QueueName = _queueName,
-                UserName = "user",
-                Password = "eXile1234567"
+                UserName = KeyVault.GetValue("RABBITMQ_USERNAME"),
+                Password = KeyVault.GetValue("RABBITMQ_PASSWORD"),
             };
 
             try

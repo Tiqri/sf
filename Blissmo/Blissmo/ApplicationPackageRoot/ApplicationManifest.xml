@@ -25,6 +25,8 @@
     <Parameter Name="ReservationResponseQueueName" DefaultValue="" />
     <Parameter Name="RabbitMQEndpoint" DefaultValue="" />
     <Parameter Name="RabbitMQPort" DefaultValue="" />
+    <Parameter Name="RabbitMQUserName" DefaultValue="" />
+    <Parameter Name="RabbitMQPassword" DefaultValue="" />
     <Parameter Name="ApplicationInsightsKey" DefaultValue="" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
@@ -52,6 +54,8 @@
             <Parameter Name="ReservationQueueName" Value="[ReservationQueueName]" />
             <Parameter Name="RabbitMQEndpoint" Value="[RabbitMQEndpoint]" />
             <Parameter Name="RabbitMQPort" Value="[RabbitMQPort]" />
+            <Parameter Name="RabbitMQUserName" Value="[RabbitMQUserName]" />
+            <Parameter Name="RabbitMQPassword" Value="[RabbitMQPassword]" />
             <Parameter Name="ApplicationInsightsKey" Value="[ApplicationInsightsKey]" />
           </Section>
         </Settings>
@@ -94,6 +98,8 @@
             <Parameter Name="ReservationResponseQueueName" Value="[ReservationResponseQueueName]" />
             <Parameter Name="RabbitMQEndpoint" Value="[RabbitMQEndpoint]" />
             <Parameter Name="RabbitMQPort" Value="[RabbitMQPort]" />
+            <Parameter Name="RabbitMQUserName" Value="[RabbitMQUserName]" />
+            <Parameter Name="RabbitMQPassword" Value="[RabbitMQPassword]" />
             <Parameter Name="ApplicationInsightsKey" Value="[ApplicationInsightsKey]" />
           </Section>
         </Settings>

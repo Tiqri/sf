@@ -23,6 +23,8 @@ namespace Blissmo.Helpers.KeyVault
             { "RESERVATION_QUEUE_NAME", GetConfigurationValue("ReservationQueueName") },
             { "RESERVATION_RESPONSE_QUEUENAME", GetConfigurationValue("ReservationResponseQueueName") },
             { "RABBITMQ_ENDPOINT", GetConfigurationValue("RabbitMQEndpoint") },
+            { "RABBITMQ_USERNAME", GetConfigurationValue("RabbitMQUserName") },
+            { "RABBITMQ_PASSWORD", GetConfigurationValue("RabbitMQPassword") },
             { "RABBITMQ_PORT", GetConfigurationValue("RabbitMQPort") }
         };
 

@@ -12,6 +12,8 @@
     <Parameter Name="ReservationQueueName" Value="" />
     <Parameter Name="RabbitMQEndpoint" Value="" />
     <Parameter Name="RabbitMQPort" Value="" />
+    <Parameter Name="RabbitMQUserName" Value="" />
+    <Parameter Name="RabbitMQPassword" Value="" />
     <Parameter Name="ApplicationInsightsKey" Value="" />
   </Section>
   <!-- The content will be generated during build -->
