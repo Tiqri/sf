@@ -12,3 +12,6 @@
     
 <h3>Configure application settings</h3>
 Blissmo uses Azure Search Service, RabbitMq and SendGrid. Therefore, you have to configure application settings from \Blissmo\ApplicationPackageRoot\ApplicationManifest.xml file.
+
+<h3>High-Level Architecture Design</h3>
+<img src="https://github.com/Tiqri/sf/blob/master/blissmo_high_level_diagram.png" />
